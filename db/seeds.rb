@@ -5,3 +5,43 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+    User.create!(
+        first_name: 'Ariton', 
+        last_name: 'Sefedini', 
+        username: 'aritontrades', 
+        email: 'ariton@hellostocks.com', 
+        buying_power: 2000000,
+        password: 'password')
+
+    User.create!(
+        first_name: 'Ryan', 
+        last_name: 'Naing', 
+        username: 'ryantrades', 
+        email: 'ryan@hellostocks.com', 
+        buying_power: 1000000,
+        password: 'password')
+
+    User.create!(
+        first_name: 'Lakhte', 
+        last_name: 'Agha', 
+        username: 'lakhtetrades', 
+        email: 'lakhte@hellostocks.com', 
+        buying_power: 10000000,
+        password: 'password')
+
+    User.create!(
+        first_name: 'Jaspreet', 
+        last_name: 'Singh', 
+        username: 'jastrades', 
+        email: 'jaspreet@hellostocks.com', 
+        buying_power: 200000,
+        password: 'password')
+
+User.create!(
+    first_name: 'Charm', 
+    last_name: 'Uwu', 
+    username: 'charmtrades', 
+    email: 'charm@hellostocks.com', 
+    buying_power: 300000,
+    password: 'password')
