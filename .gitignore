@@ -24,7 +24,7 @@
 .byebug_history
 
 # bundle files
-bundle.js *
+app/assets/javascripts/bundle.js
 bundle.js.map
 
 # Ignore master key for decrypting credentials and more.
