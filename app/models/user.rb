@@ -1,8 +1,23 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :bigint           not null, primary key
+#  first_name      :string           not null
+#  last_name       :string           not null
+#  username        :string           not null
+#  email           :string           not null
+#  password_digest :string           not null
+#  session_token   :string           not null
+#  buying_power    :integer          not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
 class User < ApplicationRecord
 
     attr_reader :password
 
-    validates :first_name, :last_name, :password_digest, :buying_power, presence: true
+    validates :first_name, :last_name, :password_digest, presence: true
     validates :username, :email, :session_token, presence: true, uniqueness: true
     validates :password, length: { minimum: 6}, allow_nil: true
 
