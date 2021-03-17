@@ -45,7 +45,7 @@ class SignupForm extends React.Component {
                 <h3 className="signup-form-logo">HelloStocks (Add HelloStocks Logo Here)</h3>
                 <br/>
                 <br/>
-                <form onSubmit={() => this.handleSubmit} className="signup-form-box">Make Your Money Move, Fly To The Moon
+                <form onSubmit={this.handleSubmit} className="signup-form-box">Make Your Money Move, Fly To The Moon
                     <p>HelloStocks lets you invest in companies you love, commission-free.</p>
                     <br/>
                     Please enter your full legal name. Your legal name should match any form of government ID.
@@ -97,8 +97,8 @@ class SignupForm extends React.Component {
                                 onChange={this.update('password')}
                             />
                         <br/>
-                        <p>Already Started</p>
-                        <button className="signup-already-started-button">Log in to complete your application</button>
+                        {/* <p>Already Started</p>
+                        <button className="signup-already-started-button">Log in to complete your application</button> */}
                         <br/>
                         <button className="signup-button" type="submit">Continue</button>
                     </div>

@@ -9,6 +9,8 @@ class LoginForm extends React.Component {
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.renderErrors = this.renderErrors.bind(this);
+        this.update = this.update.bind(this);
     }
 
     update(field) {
@@ -19,15 +21,14 @@ class LoginForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        const currentUser = Object.assign({}, this.state);
-        this.props.processForm(currentUser);
+        this.props.processForm(this.state);
     }
 
     renderErrors() {
         return (
             <ul>
-                {Object.values(this.props.errors).map((error, idx) => (
-                    <li key={`error-${idx}`}>
+                {this.props.errors.map((error, i) => (
+                    <li key={i}>
                         {error}
                     </li>
                 ))}
