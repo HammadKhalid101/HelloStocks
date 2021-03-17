@@ -47,6 +47,22 @@
         email: 'charm@hellostocks.com', 
         buying_power: 300000,
         password: 'password')
+    
+    User.create!(
+        first_name: 'Sayeef', 
+        last_name: 'Alam', 
+        username: 'shantotrades', 
+        email: 'shanto@hellostocks.com', 
+        buying_power: 2000000,
+        password: 'password')
+
+    User.create!(
+        first_name: 'Hammad', 
+        last_name: 'Khalid', 
+        username: 'hammadtrades', 
+        email: 'hammad@hellostocksmanagement.com', 
+        buying_power: 100000000,
+        password: 'verysecure')
 
     User.create!(
         first_name: 'Demo', 

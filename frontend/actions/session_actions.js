@@ -11,7 +11,7 @@ export const receiveCurrentUser = (currentUser) => {
         type: RECEIVE_CURRENT_USER,
         currentUser,
     }
-};
+}; 
 
 // logoutCurrentUser will not accept any arguments
 export const logoutCurrentUser = () => {
