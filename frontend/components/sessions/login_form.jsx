@@ -13,6 +13,10 @@ class LoginForm extends React.Component {
         this.update = this.update.bind(this);
     }
 
+    componentWillUnmount() {
+        this.props.clearErrors();
+    }
+
     update(field) {
         return e => this.setState({
             [field]: e.currentTarget.value
@@ -65,12 +69,11 @@ class LoginForm extends React.Component {
                             />
                         </label>
                         <br/>
-                        <button className="forgot-credentials-button">Forgot your username or password?</button>
-                        <br/>
                         <button className="login-button" type="submit">Sign In</button>
                     </div>
                 </form>
-
+                <br/>
+                    <button className="forgot-credentials-button">Forgot your username or password?</button>
             </div>
         )
     }

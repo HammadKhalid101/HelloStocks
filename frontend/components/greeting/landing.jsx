@@ -9,8 +9,6 @@ export default class LandingPage extends React.Component {
                 <div className="landing-page-main-div">
                     <header>
                         <img src={window.hellostockslogo} alt="HelloStocksLogo"/>
-                        <div className="navbar-links">
-                        </div>
                         This is the landing page
                         <GreetingContainer />
                     </header>

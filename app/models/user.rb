@@ -9,7 +9,7 @@
 #  email           :string           not null
 #  password_digest :string           not null
 #  session_token   :string           not null
-#  buying_power    :integer          not null
+#  buying_power    :integer
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #
