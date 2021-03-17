@@ -1,3 +1,13 @@
 .landing-page-main-div {
     background-color: white;
 }
+
+div {
+    display: block;
+}
+
+.landing-page-header-div {
+    max-height: calc(100% - 0px - env(safe-area-inset-bottom));
+    top: 0;
+    width: 100%;
+}
