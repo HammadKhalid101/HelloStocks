@@ -9,8 +9,7 @@ class LoginForm extends React.Component {
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.renderErrors = this.renderErrors.bind(this);
-        this.update = this.update.bind(this);
+        this.handleDemoUser = this.handleDemoUser.bind(this);
     }
 
     componentWillUnmount() {
@@ -26,6 +25,13 @@ class LoginForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.processForm(this.state);
+    }
+
+    handleDemoUser() {
+        this.props.processForm({
+            username: 'demotrades',
+            password: 'password'
+        })
     }
 
     renderErrors() {
@@ -74,6 +80,8 @@ class LoginForm extends React.Component {
                 </form>
                 <br/>
                     <button className="forgot-credentials-button">Forgot your username or password?</button>
+                    <br/>
+                    <button className='demo-user-button-login' onClick={this.handleDemoUser}>Demo User</button>
             </div>
         )
     }

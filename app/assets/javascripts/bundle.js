@@ -469,8 +469,7 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
       password: ''
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
-    _this.renderErrors = _this.renderErrors.bind(_assertThisInitialized(_this));
-    _this.update = _this.update.bind(_assertThisInitialized(_this));
+    _this.handleDemoUser = _this.handleDemoUser.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -493,6 +492,14 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
     value: function handleSubmit(e) {
       e.preventDefault();
       this.props.processForm(this.state);
+    }
+  }, {
+    key: "handleDemoUser",
+    value: function handleDemoUser() {
+      this.props.processForm({
+        username: 'demotrades',
+        password: 'password'
+      });
     }
   }, {
     key: "renderErrors",
@@ -529,7 +536,10 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
         type: "submit"
       }, "Sign In"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         className: "forgot-credentials-button"
-      }, "Forgot your username or password?"));
+      }, "Forgot your username or password?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        className: "demo-user-button-login",
+        onClick: this.handleDemoUser
+      }, "Demo User"));
     }
   }]);
 
@@ -638,6 +648,7 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
       password: ''
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    _this.handleDemoUser = _this.handleDemoUser.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -661,6 +672,14 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
       e.preventDefault();
       var newUser = Object.assign({}, this.state);
       this.props.processForm(newUser);
+    }
+  }, {
+    key: "handleDemoUser",
+    value: function handleDemoUser() {
+      this.props.demoUser({
+        username: 'demotrades',
+        password: 'password'
+      });
     }
   }, {
     key: "renderErrors",
@@ -722,7 +741,10 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         className: "signup-button",
         type: "submit"
-      }, "Continue"))));
+      }, "Continue"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        className: "demo-user-button-signup",
+        onClick: this.handleDemoUser
+      }, "Demo User"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null));
     }
   }]);
 
@@ -753,7 +775,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var mapStateToProps = function mapStateToProps(state) {
+var mapStateToProps = function mapStateToProps(state, ownProps) {
   return {
     errors: state.errors.session
   };
@@ -763,6 +785,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     processForm: function processForm(newUser) {
       return dispatch((0,_actions_session_actions__WEBPACK_IMPORTED_MODULE_2__.signup)(newUser));
+    },
+    demoUser: function demoUser(_demoUser) {
+      return dispatch((0,_actions_session_actions__WEBPACK_IMPORTED_MODULE_2__.login)(_demoUser));
     },
     clearErrors: function clearErrors() {
       return dispatch((0,_actions_session_actions__WEBPACK_IMPORTED_MODULE_2__.clearErrors)());
