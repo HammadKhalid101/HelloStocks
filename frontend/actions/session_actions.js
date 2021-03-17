@@ -5,7 +5,7 @@ export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
 export const RECEIVE_SESSION_ERRORS = 'RECEIVE_ERRORS';
 
 // receiveCurrentUser will an user object as an argument
-const receiveCurrentUser = (currentUser) => {
+export const receiveCurrentUser = (currentUser) => {
     return {
         type: RECEIVE_CURRENT_USER,
         currentUser,
@@ -13,17 +13,17 @@ const receiveCurrentUser = (currentUser) => {
 };
 
 // logoutCurrentUser will not accept any arguments
-const logoutCurrentUser = () => {
+export const logoutCurrentUser = () => {
     return {
         type: LOGOUT_CURRENT_USER,
     }
 };
 
 // receiveErrors will accept an errors array as an argument
-const receiveErrors = (errors) => {
+export const receiveErrors = (errors) => {
     return {
         type: RECEIVE_SESSION_ERRORS,
-        erros,
+        errors,
     }
 };
 
@@ -40,14 +40,14 @@ export const signup = (user) => dispatch => {
 export const login = (user) => dispatch => {
     return APIUtil.login(user).then((user) => (
         dispatch(receiveCurrentUser(user))
-    ), err => (
-        dispatch(receiveErrors(err.responseJSON))
-    ))
+    ), err => {
+      return dispatch(receiveErrors(err.responseJSON))
+    })
 };
 
 // logout will not accept any arguments
 export const logout = () => dispatch => {
-    return APIUtil.login().then((user) => (
+    return APIUtil.logout().then((user) => (
         dispatch(logoutCurrentUser())
     ))
 };
