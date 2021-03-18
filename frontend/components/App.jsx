@@ -8,8 +8,8 @@ import {
 } from 'react-router-dom';
 
 
-import LoginFormContainer from "./sessions/login_form_container";
-import SignupFormContainer from "./sessions/signup_form_container";
+import LoginFormContainer from "./sessions/login/login_form_container";
+import SignupFormContainer from "./sessions/signup/signup_form_container";
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import LandingPage from "./greeting/landing";
 
