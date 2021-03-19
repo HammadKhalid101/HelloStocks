@@ -1,0 +1,144 @@
+.login-page-main {
+    display: flex;
+}
+
+.login-page-img-div {
+    width: 50vw;
+    height: 100vh;
+}
+
+.login-page-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.login-form-container {
+    display: flex;
+    align-items: center;
+    margin: 58px;
+}
+
+.login-form {
+    display: block;
+}
+
+.login-form-header {
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.login-form-header span {
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.4px;
+}
+
+.login-form-mid {
+    font-size: 12px;
+    margin-bottom: 60px;
+}
+
+.login-form-footer {
+    margin-top: 24px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.login-form-input-labels {
+    padding: 9px 0px;
+}
+
+.login-form-email-input-box {
+    box-sizing: border-box;
+    border: 1px solid #d3dbe0;
+    border-radius: 5px;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.login-form-email-input-box:hover {
+    border-color: gray;
+    transition: 0.3s;
+}
+
+.login-form-email-input {
+    width: 378px;
+    height: 29px;
+    border: none;
+    outline: none;
+    padding: 0px;
+}
+
+.login-form-password-input-box {
+    box-sizing: border-box;
+    border: 1px solid #d3dbe0;
+    border-radius: 5px;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.login-form-password-input-box:hover {
+    border-color: gray;
+    transition: 0.2s;
+}
+
+.login-form-password-input {
+    width: 378px;
+    height: 29px;
+    border: none;
+    outline: none;
+    padding: 0px;
+}
+
+.forgot-credentials {
+    margin-top: 12px;
+}
+
+.login-form-signin-button {
+    color: white;
+    align-items: center;
+    cursor: pointer;
+    justify-content: center;
+    height: 48px;
+    min-width: 138px;
+    border-radius: 5px;
+    background-color: rgb(0, 200, 5);
+    border: none;
+    
+}
+
+.login-form-signin-button.button:hover {
+    color: gray
+}
+
+.login-form-signin-button-span {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: -0.1px;
+    line-height: 20px;
+}
+
+.login-form-demo-button {
+    color: white;
+    align-items: center;
+    cursor: pointer;
+    justify-content: center;
+    height: 48px;
+    min-width: 138px;
+    border-radius: 5px;
+    background-color: rgb(0, 200, 5);
+    border: none;
+}
+
+.login-form-demo-button-span {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: -0.1px;
+    line-height: 20px;
+}
+
+.forgot-credentials-link {
+    color: rgb(0, 200, 5);
+    text-decoration: none;
+}

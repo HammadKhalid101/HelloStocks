@@ -64,7 +64,7 @@
     display: inline-flex;
     justify-content: center;
     min-width: 144px;
-    font-weight: 800;
+    font-weight: 600;
     font-size: 18px;
 }
 
@@ -83,7 +83,7 @@
     min-width: 144px;
     border-radius: 25px;
     background-color: rgb(0, 200, 5);
-    font-weight: 800;
+    font-weight: 600;
     font-size: 18px;
 }
 
@@ -136,22 +136,4 @@
     
 }
 
-.landing-page-header-signup-link {
-    color: white;
-    text-decoration: none;
-    align-items: center;
-    cursor: pointer;
-    display: inline-flex;
-    justify-content: center;
-    height: 48px;
-    min-width: 144px;
-    border-radius: 25px;
-    background-color: black;
-    font-weight: 800;
-    font-size: 18px;
-}
-
-.landing-page-header-signup-link:hover {
-    color: gold;
-}
 
