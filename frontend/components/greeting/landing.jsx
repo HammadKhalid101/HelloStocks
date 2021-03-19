@@ -34,7 +34,7 @@ export default class LandingPage extends React.Component {
                                     </li>
                                 </ul>
                             </div>
-                            <div>
+                            <div className="greeting-container-div">
                                 <GreetingContainer />
                             </div>
                         </div>
@@ -58,9 +58,13 @@ export default class LandingPage extends React.Component {
                                             <span>Sign Up</span>
                                         </Link>
                                     </div>
-                                    <button className="commissions-button">
-                                        <span>(add ! Logo) Commissions & Free Stock Disclosures</span>
-                                    </button>
+                                    <div className="commissions-modal-container">
+                                        <button className="commissions-modal-button">
+                                            <span className="commissions-modal-span">
+                                                Commissions & Free Stock Disclosures
+                                            </span>
+                                        </button>
+                                    </div>
                                 </div>
                                 <div className="landing-page-header-right-div">
                                     <div className="landing-page-header-vid-div">
