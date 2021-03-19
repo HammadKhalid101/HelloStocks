@@ -108,8 +108,12 @@
     
 }
 
-.login-form-signin-button.button:hover {
-    color: gray
+.login-form-signin-button:hover {
+    background-color: rgb(0, 180, 5);
+}
+
+.login-form-signin-button:focus {
+    outline: none !important;
 }
 
 .login-form-signin-button-span {
@@ -131,6 +135,14 @@
     border: none;
 }
 
+.login-form-demo-button:hover {
+    background-color: rgb(0, 180, 5);
+}
+
+.login-form-demo-button:focus {
+    outline: none !important;
+}
+
 .login-form-demo-button-span {
     font-size: 13px;
     font-weight: 700;
@@ -141,4 +153,12 @@
 .forgot-credentials-link {
     color: rgb(0, 200, 5);
     text-decoration: none;
+}
+
+.login-form-errors-ul {
+    list-style-type: disc;
+    list-style-position: inside;
+    color: #ff5000;
+    margin: 12px 12px 0px 0px;
+    margin-bottom: 8px;
 }
