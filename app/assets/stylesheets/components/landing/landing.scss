@@ -106,10 +106,11 @@
 }
 
 .landing-page-header-left-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
     margin-left: 9px;
     margin-right: 9px;
-    width: 492px;
-    visibility: visible;
 }
 
 .landing-page-header-div h1 {
@@ -149,9 +150,15 @@
 }
 
 .landing-page-header-vid {
-    width: 670px;
-    height: 580px;
-    
+    width: inherit;
+    position: absolute;
+    margin-left: px;
+
+}
+
+.landing-page-header-img {
+    width: inherit;
+    z-index: 1;
 }
 
 .landing-page-header-signup-link {

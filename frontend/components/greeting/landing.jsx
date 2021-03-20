@@ -68,7 +68,16 @@ export default class LandingPage extends React.Component {
                                 </div>
                                 <div className="landing-page-header-right-div">
                                     <div className="landing-page-header-vid-div">
-                                        <img src={window.landing_page_header} alt=""/>
+                                        <video
+                                            className="landing-page-header-vid" 
+                                            playsInline
+                                            preload="auto"
+                                            loop
+                                            muted={true}
+                                            autoPlay={true}
+                                            src={window.landing_page_header_vid}>
+                                        </video>
+                                        <img className="landing-page-header-img" src={window.landing_page_header_img}/>
                                     </div>
                                 </div>
                             </div>
