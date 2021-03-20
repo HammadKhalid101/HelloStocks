@@ -14,7 +14,7 @@
         username: 'aritontrades', 
         email: 'ariton@hellostocks.com', 
         buying_power: 2000000,
-        password: 'password')
+        password: 'password1234')
 
     User.create!(
         first_name: 'Ryan', 
@@ -22,7 +22,7 @@
         username: 'ryantrades', 
         email: 'ryan@hellostocks.com', 
         buying_power: 1000000,
-        password: 'password')
+        password: 'password1234')
 
     User.create!(
         first_name: 'Lakhte', 
@@ -30,7 +30,7 @@
         username: 'lakhtetrades', 
         email: 'lakhte@hellostocks.com', 
         buying_power: 10000000,
-        password: 'password')
+        password: 'password1234')
 
     User.create!(
         first_name: 'Jaspreet', 
@@ -38,7 +38,7 @@
         username: 'jastrades', 
         email: 'jaspreet@hellostocks.com', 
         buying_power: 200000,
-        password: 'password')
+        password: 'password1234')
 
     User.create!(
         first_name: 'Charm', 
@@ -46,7 +46,7 @@
         username: 'charmtrades', 
         email: 'charm@hellostocks.com', 
         buying_power: 300000,
-        password: 'password')
+        password: 'password1234')
     
     User.create!(
         first_name: 'Sayeef', 
@@ -54,7 +54,7 @@
         username: 'shantotrades', 
         email: 'shanto@hellostocks.com', 
         buying_power: 2000000,
-        password: 'password')
+        password: 'password1234')
 
     User.create!(
         first_name: 'Hammad', 
@@ -70,4 +70,4 @@
         username: 'demotrades', 
         email: 'demotrades@hellostocks.com', 
         buying_power: 10000,
-        password: 'password')
+        password: 'password1234')
