@@ -15,7 +15,9 @@
 
 .login-form-container {
     display: flex;
-    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     margin: 58px;
 }
 
@@ -29,13 +31,13 @@
 }
 
 .login-form-header span {
-    font-size: 16px;
+    font-size: 21px;
     font-weight: 500;
     letter-spacing: 0.4px;
 }
 
 .login-form-mid {
-    font-size: 12px;
+    font-size: 13px;
     margin-bottom: 60px;
 }
 
@@ -47,6 +49,7 @@
 
 .login-form-input-labels {
     padding: 9px 0px;
+    margin-bottom: 8px;
 }
 
 .login-form-email-input-box {
@@ -150,6 +153,10 @@
     line-height: 20px;
 }
 
+.forgot-credentials {
+    margin-top: 16px;
+}
+
 .forgot-credentials-link {
     color: rgb(0, 200, 5);
     text-decoration: none;
@@ -161,4 +168,20 @@
     color: #ff5000;
     margin: 12px 12px 0px 0px;
     margin-bottom: 8px;
+}
+
+.login-form-redirect-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: inherit;
+    font-size: 13px;
+}
+
+.login-form-redirect-signup-link {
+    color: rgb(0, 200, 5);
+    text-decoration: none;
+    align-items: center;
+    cursor: pointer;
+    min-width: 144px;
+    font-size: 13px;
 }
