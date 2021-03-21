@@ -101,6 +101,63 @@ export default class LandingPage extends React.Component {
                             </div>
                         </header>
                     </div>
+                    <div className="second-section">
+                        <div className="second-section-content">
+                            <h4 className="second-section-text">
+                                See our 
+                                <button className="second-section-modal-button">
+                                   <span className="second-section-modal-button-text">
+                                        fee schedule
+                                    </span>
+                                </button> 
+                                to learn more about cost.
+                            </h4>
+                        </div>
+                    </div>
+                    <div className="third-section">
+                        {/* <div className="third-section-content"> */}
+                            <div className="third-section-left">
+                                <div className="third-section-vid-div">
+                                <video
+                                    className="third-section-vid" 
+                                    playsInline
+                                    preload="auto"
+                                    loop
+                                    muted={true}
+                                    autoPlay={true}
+                                    src={window.third_section_vid}>
+                                </video>
+                                </div>
+                            </div>
+                            <div className="third-section-right">
+                                <div className="third-section-right-modal-content">
+                                    <div className="third-section-right-modal-div">
+                                        <h1 className="third-section-right-heading">
+                                            We are all investors.
+                                        </h1>
+                                    </div>
+                                    <div className="third-section-modal-button-div">
+                                        <button className="third-section-modal-button">
+                                            <span className="third-section-modal-button-span">See the campain</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        {/* </div> */}
+                    </div>
+                </div>
+                <div className="landing-page-mid-div">
+                    <div className="landing-page-mid-content">
+                            <section className="landing-page-mid-section">
+
+                            </section>
+                    </div>
+                </div>
+                <div className="landing-page-bottom-div">
+                    <div className="landing-page-footer-container">
+                        <footer className="landing-page-footer">
+                        </footer>
+                    </div>
                 </div>
             </div>
         )

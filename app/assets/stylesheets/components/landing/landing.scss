@@ -213,4 +213,124 @@
     background-color: rgb(42, 49, 55);
 }
 
+.second-section {
+    background-color: white;
+    border-bottom: 1px solid black;
+    width: 100%;
+    height: 100px;
+}
+
+.second-section-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 1280px;
+    max-width: 1280px;
+    padding-left: 37px;
+    padding-right: 37px;
+    width: 100%;
+    height: inherit;
+    margin: auto;
+}
+
+.second-section-text {
+    font-size: 18px;
+}
+
+.second-section-modal-button {
+    border: none;
+    background-color: white;
+}
+
+.second-section-modal-button:hover {
+    color: rgb(0, 180, 5);
+    cursor: pointer;
+}
+
+.second-section-modal-button:focus {
+    outline: none !important;
+}
+
+.second-section-modal-button-text {
+    font-size: 18px;
+    text-decoration: underline solid;
+}
+
+.third-section {
+    display: flex;
+    background-color: white;
+    border-bottom: 1px solid black;
+    width: 100%;
+    height: 452px;
+    min-width: 1280px;
+    // max-width: 1280px;
+}
+
+.third-section-left {
+    width: 50%;
+}
+
+.third-section-vid-div {
+    height: 452px;
+}
+
+.third-section-vid {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    height: 100%;
+}
+
+.third-section-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+.third-section-right-modal-content {
+    margin-right: 102px;
+}
+
+.third-section-right-modal-div {
+    margin-bottom: 20px;
+}
+
+.third-section-right-heading {
+    font-size: 52px;
+    font-weight: 500;
+}
+
+.third-section-modal-button {
+    border: none;
+    background-color: white;
+}
+
+.third-section-modal-button:hover {
+    color: rgb(0, 180, 5);
+    cursor: pointer;
+}
+
+.third-section-modal-button:focus {
+    outline: none !important;
+}
+
+.third-section-modal-button-span {
+    font-size: 18px;
+    font-weight: 600;;
+}
+
+.landing-page-mid-content {
+    background-color: white;
+    border-bottom: 1px solid black;
+    width: 100%;
+    height: 822px;
+}
+
+.landing-page-footer-container {
+    background-color: black;
+    width: 100%;
+    height: 822px;
+}
+
 
