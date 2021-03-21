@@ -92,14 +92,14 @@
 }
 
 .main-nav-signup-link:hover {
-    color: gray;
+    background-color: rgb(0, 180, 5);
 }
 
 .first-section {
     background-color: rgb(195,245,60);
     border-bottom: 1px solid rgb(0, 0, 0);
     width: 100%;
-    height: 800px;
+    height: 650px;
 }
 
 .landing-page-header-div {
@@ -130,10 +130,35 @@
 }
 
 .commissions-modal-button {
+    display: flex;
+    align-items: center;
     border: none;
     font-size: 16px;
     background-color: #c3f53c;
     font-weight: bold;
+}
+
+.commissions-modal-button:hover {
+    color: rgb(0, 180, 5);
+    cursor: pointer;
+}
+
+.commissions-modal-button:focus {
+    outline: none !important;
+}
+
+.commissions-modal-button-logo-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 25px;
+    width: 25px;
+    border: 3px solid black;
+    border-radius: 50%;
+}
+
+.commissions-modal-span {
+    margin-left: 10px;
 }
 
 .landing-page-header {
@@ -182,6 +207,10 @@
     background-color: black;
     font-weight: 600;
     font-size: 18px;
+}
+
+.landing-page-header-signup-link:hover {
+    background-color: rgb(42, 49, 55);
 }
 
 

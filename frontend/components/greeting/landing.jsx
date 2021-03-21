@@ -60,9 +60,27 @@ export default class LandingPage extends React.Component {
                                     </div>
                                     <div className="commissions-modal-container">
                                         <button className="commissions-modal-button">
-                                            <span className="commissions-modal-span">
-                                                Commissions & Free Stock Disclosures
-                                            </span>
+                                            <div className="commissions-modal-button-logo-div">
+                                                <span className="commissions-modal-button-logo">
+                                                    i
+                                                </span>
+                                            </div>
+                                            <div lassName="commissions-modal-span">
+                                                <span className="commissions-modal-span">
+                                                    Commissions & Free Stock Disclosures
+                                                </span>
+                                            </div>
+                                            {/* <span className="commissions-modal-button-span">
+                                                <span className="commissions-modal-button-logo-span">
+                                                    <svg fill="none" height="28" viewBox="0 0 24 24" width="28" class="commissions-modal-button-logo">
+                                                        <circle cx="12" cy="12" r="11" stroke="rgb(0, 0, 0)" stroke-width="2"></circle>
+                                                        <path d="M11.232 18H13.056V9.52H11.232V18ZM11.2 8.128H13.088V6.32H11.2V8.128Z" fill="rgb(0, 0, 0)"></path>
+                                                    </svg>
+                                                </span>
+                                                <span className="commissions-modal-button-text-span">
+                                                    Commissions & Free Stock Disclosures
+                                                </span>
+                                            </span> */}
                                         </button>
                                     </div>
                                 </div>
