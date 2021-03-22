@@ -3,7 +3,6 @@ class Api::AssetsController < ApplicationController
         @user = User.find_by(id: params[:user_id])
         @assets = Asset.includes(:stocks).where(user_id: @user.id)
         # @user_id = User.find_by(id: params[:user_id]).id
-        # debugger
         if @assets
             render :index
         else
@@ -46,18 +45,20 @@ class Api::AssetsController < ApplicationController
     end
 
     def update
-        @user = User.find_by(id: params[:user_id])
-        @asset = @asset = Asset.find_by(user_id: @user.id)
-        if @asset.update(asset_params)
+        @asset = User.find_by(id: params[:user_id]).assets.find_by(id: params[:id])
+        # debugger
+        # @asset = Asset.find_by(user_id: @user.id)
+        if @asset
+            @asset.update(asset_params)
             render :show
         else
-            render json: ["Not enough buying power"], status: 422
+            render json: ["Not enough buying power, you don't own the stock"], status: 422
         end 
 
     end
 
     def destroy
-        @asset = Asset.find_by(id: params[:id])
+        @asset = User.find_by(id: params[:user_id]).assets.find_by(id: params[:id])
         @user = User.find_by(id: params[:user_id])
         # debugger
         if @asset
