@@ -56,4 +56,18 @@ class User < ApplicationRecord
         self.save
         self.session_token
     end
+
+    def charge(asset_total_cost)
+        #user model
+        # debugger
+        self.update(buying_power: self.buying_power - asset_total_cost)
+        # debugger
+    end
+
+    def credit(asset_total_value)
+        #user model
+        # debugger
+        self.update(buying_power: self.buying_power + asset_total_value)
+        # debugger       
+    end
 end

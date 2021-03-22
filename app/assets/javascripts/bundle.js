@@ -129,7 +129,7 @@ __webpack_require__.r(__webpack_exports__);
 var RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 var LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
 var RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
-var CLEAR_SESSION_ERRORS = 'CLEAR_SESSION_ERRORS'; // receiveCurrentUser will an user object as an argument
+var CLEAR_SESSION_ERRORS = 'CLEAR_SESSION_ERRORS'; // receiveCurrentUser will accept an user object as an argument
 
 var receiveCurrentUser = function receiveCurrentUser(currentUser) {
   return {
