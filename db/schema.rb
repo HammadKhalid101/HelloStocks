@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_22_011502) do
+ActiveRecord::Schema.define(version: 2021_03_22_043518) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 2021_03_22_011502) do
   create_table "assets", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "stock_id", null: false
-    t.integer "quantity", null: false
-    t.integer "avg_price", null: false
+    t.float "quantity", null: false
+    t.float "avg_price", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id", "stock_id"], name: "index_assets_on_user_id_and_stock_id", unique: true
@@ -28,8 +28,8 @@ ActiveRecord::Schema.define(version: 2021_03_22_011502) do
   create_table "stocks", force: :cascade do |t|
     t.string "name", null: false
     t.string "tikr", null: false
-    t.string "last_price", null: false
-    t.string "percent_change", null: false
+    t.float "last_price", null: false
+    t.float "percent_change", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_stocks_on_name", unique: true
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 2021_03_22_011502) do
     t.string "email", null: false
     t.string "password_digest", null: false
     t.string "session_token", null: false
-    t.integer "buying_power"
+    t.float "buying_power"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true

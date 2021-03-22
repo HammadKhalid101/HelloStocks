@@ -1,0 +1,1 @@
+json.extract! asset, :id, :user_id, :stock_id, :quantity, :avg_price
