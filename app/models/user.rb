@@ -21,6 +21,10 @@ class User < ApplicationRecord
     validates :username, :email, :session_token, presence: true, uniqueness: true
     validates :password, length: { minimum: 10}, allow_nil: true
 
+    has_many :assets, class_name: "Asset", foreign_key: "user_id"
+
+    has_many :owned_stocks, through: :assets, source: :stocks
+
     after_initialize :ensure_session_token
 
     def self.find_by_credentials(username, password)

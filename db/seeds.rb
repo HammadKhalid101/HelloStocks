@@ -71,3 +71,68 @@
         email: 'demotrades@hellostocks.com', 
         buying_power: 10000,
         password: 'password1234')
+
+    # # Stockcryptos
+    Stock.create!(
+        name: "Apple",
+        tikr: "AAPL",
+        last_price: 127.90,
+        percent_change: 4.23,
+    )
+
+    Stock.create!(
+        name: "Tesla",
+        tikr: "TSLA",
+        last_price: 690.33,
+        percent_change: 2.16,
+    )
+
+    Stock.create!(
+        name: "Google",
+        tikr: "GOOGL",
+        last_price: 2026.96,
+        percent_change: 0.28,
+    )
+
+    # Assets
+    Asset.create!(
+        stock_id: 1,
+        user_id: 1, 
+        quantity: 20,
+        avg_price: 125.22,
+    )
+
+    Asset.create!(
+        stock_id: 2,
+        user_id: 1, 
+        quantity: 10,
+        avg_price: 550.67,
+    )
+
+    Asset.create!(
+        stock_id: 3,
+        user_id: 1, 
+        quantity: 40,
+        avg_price: 1800.80,
+    )
+
+    Asset.create!(
+        stock_id: 1,
+        user_id: 8, 
+        quantity: 20,
+        avg_price: 125.22,
+    )
+
+    Asset.create!(
+        stock_id: 2,
+        user_id: 8, 
+        quantity: 10,
+        avg_price: 550.67,
+    )
+
+    Asset.create!(
+        stock_id: 3,
+        user_id: 8, 
+        quantity: 40,
+        avg_price: 1800.80,
+    )
