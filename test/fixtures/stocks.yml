@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tikr: MyString
+  last_price: MyString
+  percent_change: MyString
+
+two:
+  tikr: MyString
+  last_price: MyString
+  percent_change: MyString
