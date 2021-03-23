@@ -76,7 +76,7 @@
     Stock.create!(
         name: "Apple",
         tikr: "AAPL",
-        last_price: 127.9109098,
+        last_price: 127.91,
         percent_change: 4.23,
     )
 

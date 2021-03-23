@@ -28,7 +28,7 @@ export const clearStockErrors = () => {
 }
 
 // fetchStock will take in a stockId as an argument
-export const fetchStock = (stockId) => dispatch => {
+export const fetchStocks = (stockId) => dispatch => {
     return APIUtil.fetchStock(stockId).then((stock) => ( 
         dispatch(receiveStock(stock))
     ), err => (

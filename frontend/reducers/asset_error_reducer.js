@@ -7,6 +7,7 @@ const assetErrorReducer = (initialState = [], action) => {
     Object.freeze(initialState);
     switch (action.type) {
         case RECEIVE_ASSET_ERRORS:
+            // debugger
             return action.errors;
         case CLEAR_ASSET_ERRORS:
             return [];

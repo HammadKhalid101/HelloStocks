@@ -11,7 +11,6 @@ class Api::AssetsController < ApplicationController
     end
 
     def show 
-        # debugger
         # @asset = Asset.find_by(id: params[:id])
         @user = User.find_by(id: params[:user_id])
         @asset = User.find_by(id: @user.id).assets.find_by(id: params[:id])
@@ -45,8 +44,8 @@ class Api::AssetsController < ApplicationController
     end
 
     def update
+        # debugger
         @asset = User.find_by(id: params[:user_id]).assets.find_by(id: params[:id])
-        debugger
         # @asset = Asset.find_by(user_id: @user.id)
         if @asset
             @asset.update(asset_params)
@@ -58,18 +57,22 @@ class Api::AssetsController < ApplicationController
     end
 
     def destroy
+        # debugger
         @asset = User.find_by(id: params[:user_id]).assets.find_by(id: params[:id])
         @user = User.find_by(id: params[:user_id])
         # debugger
         if @asset
+            asset_id = @asset.id
             # debugger
             @user.credit(asset_total_value)
             # debugger
             @asset.destroy
-            @stock = Stock.find_by(id: @asset[:stock_id])
+            # @stock = Stock.find_by(id: @asset[:stock_id])
             # debugger
-            render json: { message: "You have sold #{@asset.quantity} shares of #{@stock.tikr} at $#{@stock.last_price}"}
+            # render json: { message: "You have sold #{@asset.quantity} shares of #{@stock.tikr} at $#{@stock.last_price}"}
+            render json: asset_id
         else
+            # debugger
             render json: ['Asset does not exist']
         end
     end

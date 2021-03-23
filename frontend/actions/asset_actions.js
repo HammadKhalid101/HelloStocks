@@ -51,7 +51,9 @@ export const clearAssetErrors = () => {
 }
 
 // getAsset will take in an assetId, and userId as arguments
+// (1, 3)
 export const getAsset = (userId, assetId) => dispatch => {
+    debugger
     return APIUtil.fetchAsset(userId, assetId).then((asset) => ( 
         dispatch(receiveAsset(asset))
     ), err => (
@@ -60,6 +62,7 @@ export const getAsset = (userId, assetId) => dispatch => {
 };
 
 // getAllAssets will take in an userId as an argument
+// (1)
 export const getAllAssets = (userId) => dispatch => {
     return APIUtil.fetchAssets(userId).then((assets) => ( 
         dispatch(receiveAssets(assets))
@@ -68,18 +71,21 @@ export const getAllAssets = (userId) => dispatch => {
     ))
 };
 
-// buyNewAsset will take in an asset obj, and userId as arguments
-export const buyAsset = (userId, assetId) => dispatch => {
-    return APIUtil.createAsset(userId, assetId).then((asset) => ( 
+// buyNewAsset will take in an userId and asset obj as arguments
+// (1, {user_id: 1, stock_id: 4, quantity: 20, avg_price: 270.33})
+export const buyAsset = (userId, asset) => dispatch => {
+    return APIUtil.createAsset(userId, asset).then((asset) => ( 
         dispatch(receiveAsset(asset))
     ), err => (
         dispatch(receiveAssetErrors(err.responseJSON))
     ))
 };
 
-// updateOldAsset will take in an assetId obj, and userId as arguments
-export const updateOldAsset = (userId, assetId) => dispatch => {
-    return APIUtil.updateAsset(userId, assetId).then((asset) => ( 
+// updateOldAsset will take in an userId and asset {quantity: new_quan, avg_price: new_avg} obj as arguments
+// (1, {id: 3, quantity: 5, avg_price: 117.34}
+export const updateOldAsset = (userId, asset) => dispatch => {
+    debugger
+    return APIUtil.updateAsset(userId, asset).then((asset) => ( 
         dispatch(receiveAsset(asset))
     ), err => (
         dispatch(receiveAssetErrors(err.responseJSON))
@@ -87,7 +93,9 @@ export const updateOldAsset = (userId, assetId) => dispatch => {
 };
 
 // sellAsset will take in an assetId obj, and userId as arguments
+// (1, 2)
 export const sellAsset = (userId, assetId) => dispatch => {
+    debugger
     return APIUtil.destroyAsset(userId, assetId).then((asset) => ( 
         dispatch(deleteAsset(asset))
     ), err => (

@@ -4,6 +4,7 @@ import Root from './components/root'
 import configureStore from './store/store';
 import { signup, login, logout } from './util/session_api_util';
 import { fetchStock } from './util/stock_api_util';
+import { fetchStocks } from './actions/stock_actions'
 import { receiveAsset, receiveAssets, deleteAsset } from './actions/asset_actions'
 import {
     fetchAsset, 
@@ -13,6 +14,10 @@ import {
     destroyAsset } from './util/asset_api_util';
 import {
     getAsset,
+    getAllAssets,
+    buyAsset,
+    updateOldAsset,
+    sellAsset,
 } from './actions/asset_actions'
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -44,12 +49,17 @@ window.signup = signup;
 window.login = login;
 window.logout = logout;
 window.fetchStock = fetchStock;
+window.fetchStocks = fetchStocks;
 window.fetchAsset = fetchAsset;
 window.fetchAssets = fetchAssets;
 window.createAsset = createAsset;
 window.updateAsset = updateAsset;
 window.destroyAsset = destroyAsset;
 window.getAsset = getAsset;
+window.getAllAssets = getAllAssets;
+window.buyAsset = buyAsset;
+window.updateOldAsset = updateOldAsset;
+window.sellAsset = sellAsset;
 window.receiveAsset = receiveAsset;
 window.receiveAssets = receiveAssets;
 window.deleteAsset = deleteAsset;
