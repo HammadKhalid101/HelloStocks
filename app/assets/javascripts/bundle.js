@@ -103,6 +103,130 @@ function _setPrototypeOf(o, p) {
 
 /***/ }),
 
+/***/ "./frontend/actions/asset_actions.js":
+/*!*******************************************!*\
+  !*** ./frontend/actions/asset_actions.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "RECEIVE_ASSET": () => (/* binding */ RECEIVE_ASSET),
+/* harmony export */   "RECEIVE_ASSETS": () => (/* binding */ RECEIVE_ASSETS),
+/* harmony export */   "DELETE_ASSET": () => (/* binding */ DELETE_ASSET),
+/* harmony export */   "RECEIVE_ASSET_ERRORS": () => (/* binding */ RECEIVE_ASSET_ERRORS),
+/* harmony export */   "CLEAR_ASSET_ERRORS": () => (/* binding */ CLEAR_ASSET_ERRORS),
+/* harmony export */   "receiveAsset": () => (/* binding */ receiveAsset),
+/* harmony export */   "receiveAssets": () => (/* binding */ receiveAssets),
+/* harmony export */   "deleteAsset": () => (/* binding */ deleteAsset),
+/* harmony export */   "receiveAssetErrors": () => (/* binding */ receiveAssetErrors),
+/* harmony export */   "clearAssetErrors": () => (/* binding */ clearAssetErrors),
+/* harmony export */   "getAsset": () => (/* binding */ getAsset),
+/* harmony export */   "getAllAssets": () => (/* binding */ getAllAssets),
+/* harmony export */   "buyAsset": () => (/* binding */ buyAsset),
+/* harmony export */   "updateOldAsset": () => (/* binding */ updateOldAsset),
+/* harmony export */   "sellAsset": () => (/* binding */ sellAsset)
+/* harmony export */ });
+/* harmony import */ var _util_asset_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/asset_api_util */ "./frontend/util/asset_api_util.js");
+
+var RECEIVE_ASSET = 'RECEIVE_ASSET';
+var RECEIVE_ASSETS = 'RECEIVE_ASSETS';
+var DELETE_ASSET = 'DELETE_ASSET';
+var RECEIVE_ASSET_ERRORS = 'RECEIVE_ASSET_ERRORS';
+var CLEAR_ASSET_ERRORS = 'CLEAR_ASSET_ERRORS'; // receiveAsset will accept an asset object as an argument
+
+var receiveAsset = function receiveAsset(asset) {
+  debugger;
+  return {
+    type: RECEIVE_ASSET,
+    asset: asset // userId
+
+  };
+}; // receiveAssets will accept assets obj as an argument
+
+var receiveAssets = function receiveAssets(assets) {
+  debugger;
+  return {
+    type: RECEIVE_ASSETS,
+    assets: assets
+  };
+}; // deleteAsset will accept an assetId and userId as arguments
+
+var deleteAsset = function deleteAsset(assetId) {
+  debugger;
+  return {
+    type: DELETE_ASSET,
+    assetId: assetId // userId,
+
+  };
+}; // receiveAssetErrors will accept an errors array as an argument
+
+var receiveAssetErrors = function receiveAssetErrors(errors) {
+  return {
+    type: RECEIVE_ASSET_ERRORS,
+    errors: errors
+  };
+}; // clearAssetErrors will not accept an argument
+
+var clearAssetErrors = function clearAssetErrors() {
+  return {
+    type: CLEAR_ASSET_ERRORS
+  };
+}; // getAsset will take in an assetId, and userId as arguments
+
+var getAsset = function getAsset(userId, assetId) {
+  return function (dispatch) {
+    return _util_asset_api_util__WEBPACK_IMPORTED_MODULE_0__.fetchAsset(userId, assetId).then(function (asset) {
+      return dispatch(receiveAsset(asset));
+    }, function (err) {
+      return dispatch(receiveAssetErrors(err.responseJSON));
+    });
+  };
+}; // getAllAssets will take in an userId as an argument
+
+var getAllAssets = function getAllAssets(userId) {
+  return function (dispatch) {
+    return _util_asset_api_util__WEBPACK_IMPORTED_MODULE_0__.fetchAssets(userId).then(function (assets) {
+      return dispatch(receiveAssets(assets));
+    }, function (err) {
+      return dispatch(receiveAssetErrors(err.responseJSON));
+    });
+  };
+}; // buyNewAsset will take in an asset obj, and userId as arguments
+
+var buyAsset = function buyAsset(userId, assetId) {
+  return function (dispatch) {
+    return _util_asset_api_util__WEBPACK_IMPORTED_MODULE_0__.createAsset(userId, assetId).then(function (asset) {
+      return dispatch(receiveAsset(asset));
+    }, function (err) {
+      return dispatch(receiveAssetErrors(err.responseJSON));
+    });
+  };
+}; // updateOldAsset will take in an assetId obj, and userId as arguments
+
+var updateOldAsset = function updateOldAsset(userId, assetId) {
+  return function (dispatch) {
+    return _util_asset_api_util__WEBPACK_IMPORTED_MODULE_0__.updateAsset(userId, assetId).then(function (asset) {
+      return dispatch(receiveAsset(asset));
+    }, function (err) {
+      return dispatch(receiveAssetErrors(err.responseJSON));
+    });
+  };
+}; // sellAsset will take in an assetId obj, and userId as arguments
+
+var sellAsset = function sellAsset(userId, assetId) {
+  return function (dispatch) {
+    return _util_asset_api_util__WEBPACK_IMPORTED_MODULE_0__.destroyAsset(userId, assetId).then(function (asset) {
+      return dispatch(deleteAsset(asset));
+    }, function (err) {
+      return dispatch(receiveAssetErrors(err.responseJSON));
+    });
+  };
+};
+
+/***/ }),
+
 /***/ "./frontend/actions/session_actions.js":
 /*!*********************************************!*\
   !*** ./frontend/actions/session_actions.js ***!
@@ -132,6 +256,7 @@ var RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 var CLEAR_SESSION_ERRORS = 'CLEAR_SESSION_ERRORS'; // receiveCurrentUser will accept an user object as an argument
 
 var receiveCurrentUser = function receiveCurrentUser(currentUser) {
+  debugger;
   return {
     type: RECEIVE_CURRENT_USER,
     currentUser: currentUser
@@ -169,6 +294,7 @@ var signup = function signup(user) {
 
 var login = function login(user) {
   return function (dispatch) {
+    debugger;
     return _util_session_api_util__WEBPACK_IMPORTED_MODULE_0__.login(user).then(function (user) {
       return dispatch(receiveCurrentUser(user));
     }, function (err) {
@@ -1168,6 +1294,86 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 
 /***/ }),
 
+/***/ "./frontend/reducers/asset_error_reducer.js":
+/*!**************************************************!*\
+  !*** ./frontend/reducers/asset_error_reducer.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _actions_asset_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/asset_actions */ "./frontend/actions/asset_actions.js");
+
+
+var assetErrorReducer = function assetErrorReducer() {
+  var initialState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(initialState);
+
+  switch (action.type) {
+    case _actions_asset_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_ASSET_ERRORS:
+      return action.errors;
+
+    case _actions_asset_actions__WEBPACK_IMPORTED_MODULE_0__.CLEAR_ASSET_ERRORS:
+      return [];
+
+    default:
+      return initialState;
+  }
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (assetErrorReducer);
+
+/***/ }),
+
+/***/ "./frontend/reducers/asset_reducer.js":
+/*!********************************************!*\
+  !*** ./frontend/reducers/asset_reducer.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _actions_asset_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/asset_actions */ "./frontend/actions/asset_actions.js");
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+var assetReducer = function assetReducer() {
+  var initialState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(initialState);
+  var newState = Object.assign({}, initialState);
+
+  switch (action.type) {
+    case _actions_asset_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_ASSET:
+      debugger;
+      return Object.assign({}, initialState, _defineProperty({}, action.asset.id, action.asset));
+
+    case _actions_asset_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_ASSETS:
+      debugger;
+      return action.assets;
+
+    case _actions_asset_actions__WEBPACK_IMPORTED_MODULE_0__.DELETE_ASSET:
+      debugger;
+      delete newState[action.assetId];
+      return newState;
+
+    default:
+      return initialState;
+  }
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (assetReducer);
+
+/***/ }),
+
 /***/ "./frontend/reducers/entities_reducer.js":
 /*!***********************************************!*\
   !*** ./frontend/reducers/entities_reducer.js ***!
@@ -1179,12 +1385,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
-/* harmony import */ var _users_reducer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./users_reducer */ "./frontend/reducers/users_reducer.js");
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
+/* harmony import */ var _asset_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./asset_reducer */ "./frontend/reducers/asset_reducer.js");
+/* harmony import */ var _stock_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./stock_reducer */ "./frontend/reducers/stock_reducer.js");
+/* harmony import */ var _users_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./users_reducer */ "./frontend/reducers/users_reducer.js");
 
 
-var entitiesReducer = (0,redux__WEBPACK_IMPORTED_MODULE_1__.combineReducers)({
-  users: _users_reducer__WEBPACK_IMPORTED_MODULE_0__.default
+
+
+var entitiesReducer = (0,redux__WEBPACK_IMPORTED_MODULE_0__.combineReducers)({
+  users: _users_reducer__WEBPACK_IMPORTED_MODULE_3__.default,
+  stocks: _stock_reducer__WEBPACK_IMPORTED_MODULE_2__.default,
+  assets: _asset_reducer__WEBPACK_IMPORTED_MODULE_1__.default
 });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (entitiesReducer);
 
@@ -1201,15 +1413,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
-/* harmony import */ var _reducers_session_errors_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../reducers/session_errors_reducer */ "./frontend/reducers/session_errors_reducer.js");
-/* harmony import */ var _reducers_stock_errors_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../reducers/stock_errors_reducer */ "./frontend/reducers/stock_errors_reducer.js");
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
+/* harmony import */ var _reducers_session_errors_reducer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../reducers/session_errors_reducer */ "./frontend/reducers/session_errors_reducer.js");
+/* harmony import */ var _reducers_stock_errors_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../reducers/stock_errors_reducer */ "./frontend/reducers/stock_errors_reducer.js");
+/* harmony import */ var _asset_error_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./asset_error_reducer */ "./frontend/reducers/asset_error_reducer.js");
 
 
 
-var errorsReducer = (0,redux__WEBPACK_IMPORTED_MODULE_0__.combineReducers)({
-  session: _reducers_session_errors_reducer__WEBPACK_IMPORTED_MODULE_1__.default,
-  stock: _reducers_stock_errors_reducer__WEBPACK_IMPORTED_MODULE_2__.default
+
+var errorsReducer = (0,redux__WEBPACK_IMPORTED_MODULE_3__.combineReducers)({
+  session: _reducers_session_errors_reducer__WEBPACK_IMPORTED_MODULE_0__.default,
+  stock: _reducers_stock_errors_reducer__WEBPACK_IMPORTED_MODULE_1__.default,
+  asset: _asset_error_reducer__WEBPACK_IMPORTED_MODULE_2__.default
 });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (errorsReducer);
 
@@ -1303,6 +1518,7 @@ var sessionReducer = function sessionReducer() {
 
   switch (action.type) {
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_CURRENT_USER:
+      debugger;
       return {
         id: action.currentUser.id
       };
@@ -1354,6 +1570,40 @@ var stockErrorReducer = function stockErrorReducer() {
 
 /***/ }),
 
+/***/ "./frontend/reducers/stock_reducer.js":
+/*!********************************************!*\
+  !*** ./frontend/reducers/stock_reducer.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _actions_stock_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/stock_actions */ "./frontend/actions/stock_actions.js");
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+var stocksReducer = function stocksReducer() {
+  var initialState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(initialState);
+
+  switch (action.type) {
+    case _actions_stock_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_STOCK:
+      return Object.assign({}, initialState, _defineProperty({}, action.stock.id, action.stock));
+
+    default:
+      return initialState;
+  }
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (stocksReducer);
+
+/***/ }),
+
 /***/ "./frontend/reducers/users_reducer.js":
 /*!********************************************!*\
   !*** ./frontend/reducers/users_reducer.js ***!
@@ -1377,6 +1627,7 @@ var usersReducer = function usersReducer() {
 
   switch (action.type) {
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_CURRENT_USER:
+      debugger;
       return Object.assign({}, initialState, _defineProperty({}, action.currentUser.id, action.currentUser));
 
     default:
@@ -1415,6 +1666,65 @@ var configureStore = function configureStore() {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (configureStore);
+
+/***/ }),
+
+/***/ "./frontend/util/asset_api_util.js":
+/*!*****************************************!*\
+  !*** ./frontend/util/asset_api_util.js ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "fetchAssets": () => (/* binding */ fetchAssets),
+/* harmony export */   "fetchAsset": () => (/* binding */ fetchAsset),
+/* harmony export */   "createAsset": () => (/* binding */ createAsset),
+/* harmony export */   "updateAsset": () => (/* binding */ updateAsset),
+/* harmony export */   "destroyAsset": () => (/* binding */ destroyAsset)
+/* harmony export */ });
+// fetchAssets will take in an userId as an argument
+var fetchAssets = function fetchAssets(userId) {
+  return $.ajax({
+    method: 'GET',
+    url: "/api/users/".concat(userId, "/assets")
+  });
+}; // fetchAsset will take in an assetId, and userId as an argument
+
+var fetchAsset = function fetchAsset(userId, assetId) {
+  return $.ajax({
+    method: 'GET',
+    url: "/api/users/".concat(userId, "/assets/").concat(assetId)
+  });
+}; // createAsset will take in an asset obj, and an userId as an argument
+
+var createAsset = function createAsset(userId, asset) {
+  return $.ajax({
+    method: 'POST',
+    url: "/api/users/".concat(userId, "/assets"),
+    data: {
+      asset: asset
+    }
+  });
+}; // updateAsset will take in an asset obj, and an userId as an argument
+
+var updateAsset = function updateAsset(userId, asset) {
+  return $.ajax({
+    method: 'PATCH',
+    url: "/api/users/".concat(userId, "/assets/").concat(asset.id),
+    data: {
+      asset: asset
+    }
+  });
+}; // destroyAsset will take in an assetId, and userId as an argument
+
+var destroyAsset = function destroyAsset(userId, assetId) {
+  return $.ajax({
+    method: 'DELETE',
+    url: "/api/users/".concat(userId, "/assets/").concat(assetId)
+  });
+};
 
 /***/ }),
 
@@ -1505,6 +1815,7 @@ var signup = function signup(user) {
 }; // login will take in a user object as an argument
 
 var login = function login(user) {
+  debugger;
   return $.ajax({
     method: 'POST',
     url: '/api/session',
@@ -38174,7 +38485,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./store/store */ "./frontend/store/store.js");
 /* harmony import */ var _util_session_api_util__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./util/session_api_util */ "./frontend/util/session_api_util.js");
 /* harmony import */ var _util_stock_api_util__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./util/stock_api_util */ "./frontend/util/stock_api_util.js");
+/* harmony import */ var _actions_asset_actions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./actions/asset_actions */ "./frontend/actions/asset_actions.js");
+/* harmony import */ var _util_asset_api_util__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./util/asset_api_util */ "./frontend/util/asset_api_util.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
 
 
 
@@ -38213,7 +38529,16 @@ document.addEventListener('DOMContentLoaded', function () {
 window.signup = _util_session_api_util__WEBPACK_IMPORTED_MODULE_4__.signup;
 window.login = _util_session_api_util__WEBPACK_IMPORTED_MODULE_4__.login;
 window.logout = _util_session_api_util__WEBPACK_IMPORTED_MODULE_4__.logout;
-window.fetchStock = _util_stock_api_util__WEBPACK_IMPORTED_MODULE_5__.fetchStock; // Testing
+window.fetchStock = _util_stock_api_util__WEBPACK_IMPORTED_MODULE_5__.fetchStock;
+window.fetchAsset = _util_asset_api_util__WEBPACK_IMPORTED_MODULE_7__.fetchAsset;
+window.fetchAssets = _util_asset_api_util__WEBPACK_IMPORTED_MODULE_7__.fetchAssets;
+window.createAsset = _util_asset_api_util__WEBPACK_IMPORTED_MODULE_7__.createAsset;
+window.updateAsset = _util_asset_api_util__WEBPACK_IMPORTED_MODULE_7__.updateAsset;
+window.destroyAsset = _util_asset_api_util__WEBPACK_IMPORTED_MODULE_7__.destroyAsset;
+window.getAsset = _actions_asset_actions__WEBPACK_IMPORTED_MODULE_6__.getAsset;
+window.receiveAsset = _actions_asset_actions__WEBPACK_IMPORTED_MODULE_6__.receiveAsset;
+window.receiveAssets = _actions_asset_actions__WEBPACK_IMPORTED_MODULE_6__.receiveAssets;
+window.deleteAsset = _actions_asset_actions__WEBPACK_IMPORTED_MODULE_6__.deleteAsset; // Testing
 })();
 
 /******/ })()

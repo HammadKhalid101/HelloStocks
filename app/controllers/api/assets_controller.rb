@@ -46,7 +46,7 @@ class Api::AssetsController < ApplicationController
 
     def update
         @asset = User.find_by(id: params[:user_id]).assets.find_by(id: params[:id])
-        # debugger
+        debugger
         # @asset = Asset.find_by(user_id: @user.id)
         if @asset
             @asset.update(asset_params)

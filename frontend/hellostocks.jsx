@@ -4,6 +4,16 @@ import Root from './components/root'
 import configureStore from './store/store';
 import { signup, login, logout } from './util/session_api_util';
 import { fetchStock } from './util/stock_api_util';
+import { receiveAsset, receiveAssets, deleteAsset } from './actions/asset_actions'
+import {
+    fetchAsset, 
+    fetchAssets, 
+    createAsset, 
+    updateAsset, 
+    destroyAsset } from './util/asset_api_util';
+import {
+    getAsset,
+} from './actions/asset_actions'
 
 document.addEventListener('DOMContentLoaded', () => {
     const root = document.getElementById('root');
@@ -34,4 +44,13 @@ window.signup = signup;
 window.login = login;
 window.logout = logout;
 window.fetchStock = fetchStock;
+window.fetchAsset = fetchAsset;
+window.fetchAssets = fetchAssets;
+window.createAsset = createAsset;
+window.updateAsset = updateAsset;
+window.destroyAsset = destroyAsset;
+window.getAsset = getAsset;
+window.receiveAsset = receiveAsset;
+window.receiveAssets = receiveAssets;
+window.deleteAsset = deleteAsset;
 // Testing

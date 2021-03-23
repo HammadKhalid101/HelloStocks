@@ -9,6 +9,7 @@ export const signup = (user) => {
 
 // login will take in a user object as an argument
 export const login = (user) => {
+    debugger
     return $.ajax({
         method: 'POST',
         url: '/api/session',
