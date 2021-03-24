@@ -7,7 +7,6 @@ export const CLEAR_SESSION_ERRORS = 'CLEAR_SESSION_ERRORS';
 
 // receiveCurrentUser will accept an user object as an argument
 export const receiveCurrentUser = (currentUser) => {
-    debugger
     return {
         type: RECEIVE_CURRENT_USER,
         currentUser,
@@ -47,7 +46,6 @@ export const signup = (user) => dispatch => {
 
 // login will take in a user object as an argument
 export const login = (user) => dispatch => {
-    debugger
     return APIUtil.login(user).then((user) => (
         dispatch(receiveCurrentUser(user))
     ), err => {

@@ -1,0 +1,1 @@
+json.extract! stock, :id, :name, :tikr, :last_price, :percent_change

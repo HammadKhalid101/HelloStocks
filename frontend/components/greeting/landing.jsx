@@ -1,5 +1,5 @@
 import React from 'react';
-import GreetingContainer from './greeting_container';
+import Greeting from './greeting';
 import { Link } from 'react-router-dom';
 
 export default class LandingPage extends React.Component {
@@ -35,7 +35,7 @@ export default class LandingPage extends React.Component {
                                 </ul>
                             </div>
                             <div className="greeting-container-div">
-                                <GreetingContainer />
+                                <Greeting />
                             </div>
                         </div>
                     </nav>

@@ -57,17 +57,20 @@ class User < ApplicationRecord
         self.session_token
     end
 
+    # def calculate_portfolio_value
+    #     assets = self.assets
+    #     
+    # end
+    # User.new(first_name: "test", last_name: "test", username: "test", email: "test@email.com", buying_power: 1000, password: "password1234")
+    # def portfolio_value
+    #     self.portfolio_value ||= 
+    # end
+
     def charge(asset_total_cost)
-        #user model
-        # debugger
         self.update(buying_power: self.buying_power - asset_total_cost)
-        # debugger
     end
 
     def credit(asset_total_value)
-        #user model
-        # debugger
-        self.update(buying_power: self.buying_power + asset_total_value)
-        # debugger       
+        self.update(buying_power: self.buying_power + asset_total_value)  
     end
 end

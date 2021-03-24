@@ -123,23 +123,23 @@
         avg_price: 1800.80,
     )
 
-    # Asset.create!(
-    #     stock_id: 1,
-    #     user_id: 8, 
-    #     quantity: 20,
-    #     avg_price: 125.22,
-    # )
+    Asset.create!(
+        stock_id: 1,
+        user_id: 8, 
+        quantity: 20,
+        avg_price: 125.22,
+    )
 
-    # Asset.create!(
-    #     stock_id: 2,
-    #     user_id: 8, 
-    #     quantity: 10,
-    #     avg_price: 550.67,
-    # )
+    Asset.create!(
+        stock_id: 2,
+        user_id: 8, 
+        quantity: 10,
+        avg_price: 550.67,
+    )
 
-    # Asset.create!(
-    #     stock_id: 3,
-    #     user_id: 8, 
-    #     quantity: 40,
-    #     avg_price: 1800.80,
-    # )
+    Asset.create!(
+        stock_id: 3,
+        user_id: 8, 
+        quantity: 40,
+        avg_price: 1800.80,
+    )

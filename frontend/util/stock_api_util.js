@@ -5,3 +5,11 @@ export const fetchStock = (stockId) => {
         url: `/api/stocks/${stockId}`,
     })
 }
+
+// fetchStocks will will not accept an argument
+export const fetchStocks = () => {
+    return $.ajax({
+        method: 'GET',
+        url: '/api/stocks',
+    })
+}

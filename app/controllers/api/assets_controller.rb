@@ -15,7 +15,7 @@ class Api::AssetsController < ApplicationController
         @user = User.find_by(id: params[:user_id])
         @asset = User.find_by(id: @user.id).assets.find_by(id: params[:id])
 
-        # debugger
+        # 
         if @asset
             render :show
         else
@@ -28,23 +28,23 @@ class Api::AssetsController < ApplicationController
     def create 
         @asset = Asset.new(asset_params)
         @user = User.find_by(id: params[:user_id])
-        # debugger
+        # 
         if (buying_power - asset_total_cost) > 0
-            # debugger
+            # 
             if @asset.save!
                 @user.charge(asset_total_cost)
                 render :show
             end
-        # debugger
+        # 
         # @user_id = user_id: params[:user_id]
-        # debugger
+        # 
         else
             render json: ["Not enough buying power"], status: 422
         end 
     end
 
     def update
-        # debugger
+        # 
         @asset = User.find_by(id: params[:user_id]).assets.find_by(id: params[:id])
         # @asset = Asset.find_by(user_id: @user.id)
         if @asset
@@ -57,22 +57,22 @@ class Api::AssetsController < ApplicationController
     end
 
     def destroy
-        # debugger
+        # 
         @asset = User.find_by(id: params[:user_id]).assets.find_by(id: params[:id])
         @user = User.find_by(id: params[:user_id])
-        # debugger
+        # 
         if @asset
             asset_id = @asset.id
-            # debugger
+            # 
             @user.credit(asset_total_value)
-            # debugger
+            # 
             @asset.destroy
             # @stock = Stock.find_by(id: @asset[:stock_id])
-            # debugger
+            # 
             # render json: { message: "You have sold #{@asset.quantity} shares of #{@stock.tikr} at $#{@stock.last_price}"}
             render json: asset_id
         else
-            # debugger
+            # 
             render json: ['Asset does not exist']
         end
     end
@@ -98,9 +98,9 @@ class Api::AssetsController < ApplicationController
     end
 
     def asset_total_value
-        # debugger
+        # 
         @asset = Asset.find_by(id: params[:id])
-        # debugger
+        # 
         (@asset[:quantity].to_i) * (@asset[:avg_price].to_i)
     end
 end

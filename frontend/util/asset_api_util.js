@@ -30,7 +30,7 @@ export const createAsset = (userId, asset) => {
 // updateAsset will take in an asset obj, and an userId as an argument
 // (1, {id: 3, quantity: 5, avg_price: 117.34}
 export const updateAsset = (userId, asset) => {
-    debugger
+    
     return $.ajax({
         method: 'PATCH',
         url: `/api/users/${userId}/assets/${asset.id}`,
@@ -41,7 +41,7 @@ export const updateAsset = (userId, asset) => {
 // destroyAsset will take in an assetId, and userId as an argument
 // (1, 2)
 export const destroyAsset = (userId, assetId) => {
-    // debugger
+    // 
     return $.ajax({
         method: 'DELETE',
         url: `/api/users/${userId}/assets/${assetId}`,

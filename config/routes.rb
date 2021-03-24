@@ -10,6 +10,7 @@
 #                 api_users POST   /api/users(.:format)                                                                     api/users#create {:format=>:json}
 #               api_session DELETE /api/session(.:format)                                                                   api/sessions#destroy {:format=>:json}
 #                           POST   /api/session(.:format)                                                                   api/sessions#create {:format=>:json}
+#                api_stocks GET    /api/stocks(.:format)                                                                    api/stocks#index {:format=>:json}
 #                 api_stock GET    /api/stocks/:id(.:format)                                                                api/stocks#show {:format=>:json}
 #                      root GET    /                                                                                        static_pages#root
 #        rails_service_blob GET    /rails/active_storage/blobs/:signed_id/*filename(.:format)                               active_storage/blobs#show
@@ -25,7 +26,7 @@ Rails.application.routes.draw do
       resources :assets, only: [:index, :show, :create, :update, :destroy]
     end
     resource :session, only: [:create, :destroy]
-    resources :stocks, only: [:show]
+    resources :stocks, only: [:show, :index]
   end
   root to: 'static_pages#root'
 end
