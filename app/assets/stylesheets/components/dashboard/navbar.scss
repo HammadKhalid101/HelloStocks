@@ -1,3 +1,44 @@
+.dashboard-header {
+    height: 64px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 5;
+    background-color: white;
+}
+
+.dashboard-nav-container {
+    height: inherit;
+    width: inherit;
+}
+
+.dashboard-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 40px;
+    margin-right: 80px;
+    height: inherit;
+}
+
+.nav-dropdown-visible {
+    display: flex;
+    flex-direction: column;
+    height: 40px;
+}
+
+.nav-dropdown-items-container {
+    top: 40px;
+    right: -12px;
+    width: 296px;
+    max-height: 75vh;
+    position: absolute;
+    border-color: white;
+    color: black;
+    overflow-y: auto;
+    background-color: white;
+}
+
 .logout-button {
     color: white;
     align-items: center;
@@ -26,10 +67,5 @@
     line-height: 20px;
 }
 
-.dashboard-nav {
-    display: flex;
-    justify-content: space-between;
-    margin: 10px;
-}
 
 

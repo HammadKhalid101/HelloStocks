@@ -5,9 +5,9 @@ class Dashboard extends React.Component {
     render() {
         return (
             <div className="dashboard-main">
-                <div className="dashboard-top">
+                <header className="dashboard-header">
                     <Navbar />
-                </div>
+                </header>
             </div>
         )
     }

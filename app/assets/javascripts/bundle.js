@@ -492,8 +492,8 @@ var Dashboard = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "dashboard-main"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "dashboard-top"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("header", {
+        className: "dashboard-header"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_nav_navbar__WEBPACK_IMPORTED_MODULE_1__.default, null)));
     }
   }]);
@@ -557,41 +557,41 @@ var Dropdown = /*#__PURE__*/function (_React$Component) {
     _this.state = {
       showDropdown: false
     };
+    _this.clickListener = _this.clickListener.bind(_assertThisInitialized(_this));
     _this.handleDropdownClick = _this.handleDropdownClick.bind(_assertThisInitialized(_this));
-    _this.clickListener - _this.clickListener.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(Dropdown, [{
     key: "componentDidUpdate",
     value: function componentDidUpdate() {
-      window.removeEventListener('click', this.handleDropdownClick);
+      window.removeEventListener('click', this.clickListener);
+    }
+  }, {
+    key: "clickListener",
+    value: function clickListener(e) {
+      var _this2 = this;
+
+      this.setState({
+        showDropdown: false
+      }, function () {
+        window.removeEventListener('click', _this2.clickListener);
+      });
     }
   }, {
     key: "handleDropdownClick",
     value: function handleDropdownClick(e) {
-      var _this2 = this;
+      var _this3 = this;
 
-      e.preventDefault();
+      e.stopPropagation();
       this.setState(function (prevState) {
         return {
           showDropdown: !prevState.showDropdown
         };
       }, function () {
-        if (_this2.state.showDropdown) {
-          window.addEventListener('click', _this2.clickListener);
+        if (_this3.state.showDropdown) {
+          window.addEventListener('click', _this3.clickListener);
         }
-      });
-    }
-  }, {
-    key: "clickListener",
-    value: function clickListener(e) {
-      var _this3 = this;
-
-      this.setState({
-        showDropdown: false
-      }, function () {
-        window.removeEventListener('click', _this3.clickListener);
       });
     }
   }, {
