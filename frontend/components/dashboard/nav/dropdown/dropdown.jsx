@@ -40,9 +40,9 @@ class Dropdown extends React.Component {
                            Account
                        </span>
                    </div>
-                   <div className="nav-dropdown-items-container">
+                   {/* <div className="nav-dropdown-items-container"> */}
                       {this.state.showDropdown && <DropdownItems />}
-                   </div>
+                   {/* </div> */}
                </div>
            </div>
         )

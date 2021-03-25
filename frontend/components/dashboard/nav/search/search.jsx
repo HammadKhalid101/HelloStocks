@@ -18,14 +18,14 @@ class Search extends React.Component {
         
         return (
             <div className='nav-search'>
-                <div className="nav-search-img">
-                    
+                <div className="nav-search-img-div">
+                <img src={window.search_icon} />
                 </div>
-                <div className="nav-search-text-div">
-                    <p className="nav-search-text">
-                        Search
-                    </p>
-                </div>
+                    <input
+                        className="nav-search-input" 
+                        type="text"
+                        placeholder="Search"
+                    />
             </div>
         )
     }

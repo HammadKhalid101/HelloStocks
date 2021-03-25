@@ -37,44 +37,50 @@ class DropdownItems extends React.Component {
                         <div className="nav-dropdown-fullname">
                             <span>{first_name} {last_name}</span>
                         </div>
-                        <div className="nav-dropdown-portfolio-value-div">
-                            <p className="nav-dropdown-buying-power-text">
-                                Portfolio Value
-                            </p>
-                            <p className="nav-dropdown-portfolio-value">
-                                ${this.portfolioValue()}
-                            </p>
-                        </div>
-                        <div className="nav-dropdown-buying-power-div">
-                            <p className="nav-dropdown-buying-power-text">
-                                Buying Power
-                            </p>
-                            <p className="nav-dropdown-buying-power">
-                                ${buying_power}
-                            </p>
+                        <div className="money-info">
+                            <div className="nav-dropdown-portfolio-value-div">
+                                <p className="nav-dropdown-portfolio-value">
+                                    ${this.portfolioValue()}
+                                </p>
+                                <p className="nav-dropdown-buying-power-text">
+                                    Portfolio Value
+                                </p>
+                            </div>
+                            <div className="nav-dropdown-buying-power-div">
+                                <p className="nav-dropdown-buying-power">
+                                    ${buying_power}
+                                </p>
+                                <p className="nav-dropdown-buying-power-text">
+                                    Buying Power
+                                </p>
+                            </div>
                         </div>
                     </div>
                     <div className="nav-dropdown-aboutme-section">
-                        <div className="personal-links">
+                        {/* <div className="personal-links"> */}
                             <div className="linkedin-link">
-                                <a href="https://www.linkedin.com/in/hammad-khalid-071823143/">
+                                <a className="linkedin-link-a-tag" href="https://www.linkedin.com/in/hammad-khalid-071823143/">
+                                    <img src={window.linkedin} />
                                     <span>My LinkedIn</span>
                                 </a>
                             </div>
                             <div className="github-link">
-                                <a href="https://github.com/HammadKhalid101">
+                                <a className="github-link-a-tag" href="https://github.com/HammadKhalid101">
+                                    <img src={window.github} />
                                     <span>My Github</span>
                                 </a>
                             </div>
                             <div className="personal-site-link">
-                                <a href="https://www.hammad-khalid.com/">
+                                <a className="personal-site-link-a-tag" href="https://www.hammad-khalid.com/">
+                                    <img src={window.personal} />
                                     <span>My Personal Website</span>
                                 </a>
                             </div>
-                        </div>
+                        {/* </div> */}
                     </div>
                     <div className="nav-dropdown-logout">
                         <button className='logout-button' onClick={this.props.logout}>
+                            <img src={window.logout} />
                             <span className="logout-button-span">
                                 Log Out
                             </span>
