@@ -1,8 +1,15 @@
 import React from 'react';
 import Navbar from './nav/navbar'
 import Sidebar from './sidebar/sidebar';
+import MainGraph from './main_graph/main_graph';
+import BuyingPower from './buying_power/buying_power'
+import News from './news/news';
 
 class Dashboard extends React.Component {
+
+    constructor(props) {
+        super(props);
+    }
     render() {
         return (
             <div className="dashboard-main">
@@ -11,12 +18,16 @@ class Dashboard extends React.Component {
                 </header>
                 <div className="dashboard-main-content">
                     <div className="dashboard-left-side">
-                        <div className="dashboard-main-graph-container">
-                            This is the graph container
-                        </div>
-                        <div className="dashboard-news-container">
-                            This is the news container
-                        </div>
+                        <MainGraph />
+                        <BuyingPower />
+                        <News />
+                        <footer className="dashboard-left-side-footer">
+                            <div className="dashboard-left-side-footer-content">
+                                <span className="dashboard-privacy-policy-span">For more information, see our 
+                                    <a  className="dashboard-privacy-policy-link" href="/#/dashboard">Privacy Policy</a>
+                                </span>
+                            </div>
+                        </footer>
                     </div>
                     <div className="dashboard-right-side">
                         <div className="dashboard-sidebar-container">
