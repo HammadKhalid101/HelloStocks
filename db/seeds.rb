@@ -72,7 +72,7 @@
         buying_power: 10000,
         password: 'password1234')
 
-    # # Stockcryptos
+    # Stocks
     Stock.create!(
         name: "Apple",
         tikr: "AAPL",
@@ -95,11 +95,47 @@
     )
 
     Stock.create!(
+        name: "Dogecoin",
+        tikr: "DOGE",
+        last_price: 0.0515,
+        percent_change: 7.3765,
+    )
+
+    Stock.create!(
+        name: "Bitcoin",
+        tikr: "BTC",
+        last_price: 52460.60,
+        percent_change: 6.71,
+    )
+
+    Stock.create!(
         name: "Facebook",
         tikr: "FB",
         last_price: 299.43,
         percent_change: 3.21,
     )
+
+    Stock.create!(
+        name: "Gamestop",
+        tikr: "GME",
+        last_price: 120.34,
+        percent_change: 33.79,
+    )
+
+    Stock.create!(
+        name: "Amazon",
+        tikr: "AMZN",
+        last_price: 3087.07,
+        percent_change: 1.61,
+    )
+
+    Stock.create!(
+        name: "Netflix",
+        tikr: "NFLX",
+        last_price: 520.81,
+        percent_change: 2.67,
+    )
+    
 
     # Assets
     Asset.create!(
@@ -133,13 +169,55 @@
     Asset.create!(
         stock_id: 2,
         user_id: 8, 
-        quantity: 10,
+        quantity: 40,
         avg_price: 550.67,
     )
 
     Asset.create!(
         stock_id: 3,
         user_id: 8, 
-        quantity: 40,
+        quantity: 37,
         avg_price: 1800.80,
+    )
+
+    Asset.create!(
+        stock_id: 4,
+        user_id: 8, 
+        quantity: 10000,
+        avg_price: 0.342,
+    )
+
+    Asset.create!(
+        stock_id: 5,
+        user_id: 8, 
+        quantity: 10,
+        avg_price: 7034.54,
+    )
+
+    Asset.create!(
+        stock_id: 6,
+        user_id: 8, 
+        quantity: 10,
+        avg_price: 270.89,
+    )
+
+    Asset.create!(
+        stock_id: 7,
+        user_id: 8, 
+        quantity: 200,
+        avg_price: 20.36,
+    )
+
+    Asset.create!(
+        stock_id: 8,
+        user_id: 8, 
+        quantity: 60,
+        avg_price: 1900.63,
+    )
+
+    Asset.create!(
+        stock_id: 9,
+        user_id: 8, 
+        quantity: 30,
+        avg_price: 430.11,
     )
