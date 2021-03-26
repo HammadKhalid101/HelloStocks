@@ -1,8 +1,8 @@
 import React from 'react';
 import Navbar from './nav/navbar'
 import Sidebar from './sidebar/sidebar';
-import MainGraph from './main_graph/main_graph';
-import BuyingPower from './buying_power/buying_power'
+import MainGraph from './main_graph/main_graph_container';
+import BuyingPower from './buying_power/buying_power_container'
 import News from './news/news';
 
 class Dashboard extends React.Component {
@@ -10,6 +10,7 @@ class Dashboard extends React.Component {
     constructor(props) {
         super(props);
     }
+
     render() {
         return (
             <div className="dashboard-main">

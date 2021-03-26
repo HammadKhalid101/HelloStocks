@@ -9,7 +9,6 @@ class Search extends React.Component {
     }
 
     componentDidMount() {
-        
         this.props.getAllAssets(this.props.currentUser.id);
         this.props.fetchStocks();
     }

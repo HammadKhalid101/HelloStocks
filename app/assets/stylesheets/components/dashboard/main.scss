@@ -57,6 +57,10 @@
     font-size: 13px;
     font-weight: 600;
     margin-right: 5px;
+
+    .main-graph-portfolio-value-change-amount {
+        margin-right: 3px;
+    }
 }
 
 .main-graph-portfolio-value-today-span {
@@ -68,7 +72,7 @@
 
     img {
         height: 196px;
-        width: 400px;
+        width: 676px;
     }
 }
 
@@ -110,6 +114,7 @@
     .dashboard-main-buying-power-button-div {
         width: inherit;
         height: inherit;
+        border-bottom: 1px solid rgb(227, 233, 237);
 
         .dashboard-main-buying-power-button {
             width: inherit;
@@ -117,7 +122,6 @@
             border: none;
             outline: none;
             background-color: white;
-            padding: 0 24px 0 24px;
 
             .dashboard-main-buying-power-button-content {
                 display: flex;
@@ -126,7 +130,6 @@
                 font-size: 15px;
                 font-weight: 600;
                 height: inherit;
-                border-bottom: 1px solid rgb(227, 233, 237);
             }
         }
 
@@ -335,13 +338,22 @@
     flex: 1;
 }
 
+.article-content-link-div {
+
+    a span:hover {
+        color: rgb(0, 200, 5);
+    }
+}
+
 .article-content-link-tikr-span {
     margin-right: 10px;
     font-size: 13px;
     font-weight: 600;
+    letter-spacing: 0.5px;
+    font-family: fangsong;
 }
 
-.article-content-link-tikr-span {
+.article-content-link-tikr-percent {
     font-size: 13px;
     letter-spacing: 0.5px;
     font-family: fangsong;
@@ -357,6 +369,7 @@
     img {
         width: inherit;
         height: inherit;
+        border-radius: 4px;
     }
 }
 

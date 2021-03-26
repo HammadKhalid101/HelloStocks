@@ -5,13 +5,26 @@ class AssetItems extends React.Component {
     constructor(props) {
         
         super(props);
-        this.allAssets = this.allAssets.bind(this)
+        this.allAssets = this.allAssets.bind(this);
+        this.convert_to_decimal = this.convert_to_decimal.bind(this)
     }
 
     componentDidMount() {
-        
         this.props.getAllAssets(this.props.currentUser.id);
         this.props.fetchStocks();
+    }
+
+    convert_to_decimal(num) {
+        let convert = num;
+        const decimal = Math.abs(convert).toFixed(2);
+        let nums = decimal.toString();
+        if (nums.indexOf(".") === -1) {
+            nums += '..';
+        }
+        nums = decimal.toString().split(".");
+        nums[0] = nums[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        const converted = `$${nums.join(".")}`;
+        return converted;
     }
 
     allAssets() {
@@ -31,11 +44,11 @@ class AssetItems extends React.Component {
                             </div>
                         </div>
                         <div className="asset-item-graph">
-                            Graph
+                            {/* <img className="asset-item-graph-img" src={window.small_graph} /> */}
                         </div>
                         <div className="asset-item-right">
                             <div className="asset-item-last-price">
-                                ${stocks[asset.stock_id].last_price}
+                                {this.convert_to_decimal(stocks[asset.stock_id].last_price)}
                             </div>
                             <div className="asset-item-percent-change">
                                 {stocks[asset.stock_id].percent_change}%

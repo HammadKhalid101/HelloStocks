@@ -9,11 +9,25 @@ class DropdownItems extends React.Component {
             last_name: this.props.currentUser.last_name,
             buying_power: this.props.currentUser.buying_power,
         }
-        this.portfolioValue = this.portfolioValue.bind(this)
+        this.portfolioValue = this.portfolioValue.bind(this);
+        this.convert_to_decimal = this.convert_to_decimal.bind(this);
     }
 
     componentDidMount() {
         this.portfolioValue()
+    }
+
+    convert_to_decimal(num) {
+        let convert = num;
+        const decimal = Math.abs(convert).toFixed(2);
+        let nums = decimal.toString();
+        if (nums.indexOf(".") === -1) {
+            nums += '..';
+        }
+        nums = decimal.toString().split(".");
+        nums[0] = nums[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        const converted = `$${nums.join(".")}`;
+        return converted;
     }
 
     portfolioValue() {
@@ -21,11 +35,10 @@ class DropdownItems extends React.Component {
         const stocks = this.props.stocks
         
         Object.values(this.props.assets).map((asset, idx) => {
-            
             value += asset.quantity * stocks[asset.stock_id].last_price
         })
         
-        return value;
+        return this.convert_to_decimal(value);
     }
 
     render() {
@@ -40,7 +53,7 @@ class DropdownItems extends React.Component {
                         <div className="money-info">
                             <div className="nav-dropdown-portfolio-value-div">
                                 <p className="nav-dropdown-portfolio-value">
-                                    ${this.portfolioValue()}
+                                    {this.portfolioValue()}
                                 </p>
                                 <p className="nav-dropdown-buying-power-text">
                                     Portfolio Value
@@ -48,7 +61,7 @@ class DropdownItems extends React.Component {
                             </div>
                             <div className="nav-dropdown-buying-power-div">
                                 <p className="nav-dropdown-buying-power">
-                                    ${buying_power}
+                                    {this.convert_to_decimal(buying_power)}
                                 </p>
                                 <p className="nav-dropdown-buying-power-text">
                                     Buying Power

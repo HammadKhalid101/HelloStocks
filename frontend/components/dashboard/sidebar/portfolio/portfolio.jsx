@@ -4,9 +4,7 @@ import AssetItems from './asset_items_container';
 class Portfolio extends React.Component {
 
     constructor(props) {
-        
-        super(props)
-        
+        super(props);
     }
 
     render() {

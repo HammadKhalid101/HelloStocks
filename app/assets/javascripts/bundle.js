@@ -480,12 +480,32 @@ var BuyingPower = /*#__PURE__*/function (_React$Component) {
   var _super = _createSuper(BuyingPower);
 
   function BuyingPower(props) {
+    var _this;
+
     _classCallCheck(this, BuyingPower);
 
-    return _super.call(this, props);
+    _this = _super.call(this, props);
+    _this.convert_to_decimal = _this.convert_to_decimal.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(BuyingPower, [{
+    key: "convert_to_decimal",
+    value: function convert_to_decimal(num) {
+      var convert = num;
+      var decimal = Math.abs(convert).toFixed(2);
+      var nums = decimal.toString();
+
+      if (nums.indexOf(".") === -1) {
+        nums += '..';
+      }
+
+      nums = decimal.toString().split(".");
+      nums[0] = nums[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      var converted = "$".concat(nums.join("."));
+      return converted;
+    }
+  }, {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -500,7 +520,7 @@ var BuyingPower = /*#__PURE__*/function (_React$Component) {
         className: "dashboard-main-buying-power-text-span"
       }, "Buying Power"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
         className: "dashboard-main-buying-power-value-span"
-      }, "$186,396.33")))));
+      }, this.convert_to_decimal(this.props.currentUser.buying_power))))));
     }
   }]);
 
@@ -508,6 +528,39 @@ var BuyingPower = /*#__PURE__*/function (_React$Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0__.Component);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (BuyingPower);
+
+/***/ }),
+
+/***/ "./frontend/components/dashboard/buying_power/buying_power_container.jsx":
+/*!*******************************************************************************!*\
+  !*** ./frontend/components/dashboard/buying_power/buying_power_container.jsx ***!
+  \*******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _buying_power__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./buying_power */ "./frontend/components/dashboard/buying_power/buying_power.jsx");
+
+
+
+var mapStateToProps = function mapStateToProps(_ref) {
+  var session = _ref.session,
+      _ref$entities = _ref.entities,
+      users = _ref$entities.users,
+      assets = _ref$entities.assets,
+      stocks = _ref$entities.stocks;
+  return {
+    currentUser: users[session.id]
+  };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(mapStateToProps, null)(_buying_power__WEBPACK_IMPORTED_MODULE_1__.default));
 
 /***/ }),
 
@@ -525,8 +578,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _nav_navbar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./nav/navbar */ "./frontend/components/dashboard/nav/navbar.jsx");
 /* harmony import */ var _sidebar_sidebar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./sidebar/sidebar */ "./frontend/components/dashboard/sidebar/sidebar.jsx");
-/* harmony import */ var _main_graph_main_graph__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./main_graph/main_graph */ "./frontend/components/dashboard/main_graph/main_graph.jsx");
-/* harmony import */ var _buying_power_buying_power__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./buying_power/buying_power */ "./frontend/components/dashboard/buying_power/buying_power.jsx");
+/* harmony import */ var _main_graph_main_graph_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./main_graph/main_graph_container */ "./frontend/components/dashboard/main_graph/main_graph_container.jsx");
+/* harmony import */ var _buying_power_buying_power_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./buying_power/buying_power_container */ "./frontend/components/dashboard/buying_power/buying_power_container.jsx");
 /* harmony import */ var _news_news__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./news/news */ "./frontend/components/dashboard/news/news.jsx");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -579,7 +632,7 @@ var Dashboard = /*#__PURE__*/function (_React$Component) {
         className: "dashboard-main-content"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "dashboard-left-side"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_main_graph_main_graph__WEBPACK_IMPORTED_MODULE_3__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_buying_power_buying_power__WEBPACK_IMPORTED_MODULE_4__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_news_news__WEBPACK_IMPORTED_MODULE_5__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("footer", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_main_graph_main_graph_container__WEBPACK_IMPORTED_MODULE_3__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_buying_power_buying_power_container__WEBPACK_IMPORTED_MODULE_4__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_news_news__WEBPACK_IMPORTED_MODULE_5__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("footer", {
         className: "dashboard-left-side-footer"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "dashboard-left-side-footer-content"
@@ -639,18 +692,55 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var MainGraph = /*#__PURE__*/function (_React$Component) {
   _inherits(MainGraph, _React$Component);
 
   var _super = _createSuper(MainGraph);
 
   function MainGraph(props) {
+    var _this;
+
     _classCallCheck(this, MainGraph);
 
-    return _super.call(this, props);
+    _this = _super.call(this, props);
+    _this.portfolioValue = _this.portfolioValue.bind(_assertThisInitialized(_this));
+    _this.convert_to_decimal = _this.convert_to_decimal.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(MainGraph, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.portfolioValue();
+    }
+  }, {
+    key: "convert_to_decimal",
+    value: function convert_to_decimal(num) {
+      var convert = num;
+      var decimal = Math.abs(convert).toFixed(2);
+      var nums = decimal.toString();
+
+      if (nums.indexOf(".") === -1) {
+        nums += '..';
+      }
+
+      nums = decimal.toString().split(".");
+      nums[0] = nums[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      var converted = "$".concat(nums.join("."));
+      return converted;
+    }
+  }, {
+    key: "portfolioValue",
+    value: function portfolioValue() {
+      var value = this.props.currentUser.buying_power;
+      var stocks = this.props.stocks;
+      Object.values(this.props.assets).map(function (asset, idx) {
+        value += asset.quantity * stocks[asset.stock_id].last_price;
+      });
+      return this.convert_to_decimal(value);
+    }
+  }, {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("section", {
@@ -663,21 +753,21 @@ var MainGraph = /*#__PURE__*/function (_React$Component) {
         className: "main-graph-portfolio-value-heading"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
         className: "main-graph-portfolio-value-span"
-      }, "$230,978.22"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, this.portfolioValue()))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "main-graph-portfolio-value-change-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
         className: "main-graph-portfolio-value-change-span"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
         className: "main-graph-portfolio-value-change-amount"
-      }, "+$4,245"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+      }, "+$16,235.35"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
         className: "main-graph-portfolio-value-change-percent"
       }, "(+1.87%)")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
         className: "main-graph-portfolio-value-today-span"
       }, "Today"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "dashboard-main-graph-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-        className: "stonks-img",
-        src: window.stonks
+        className: "chart-img",
+        src: window.chart
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("nav", {
         className: "dashboard-main-graph-nav"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -718,6 +808,39 @@ var MainGraph = /*#__PURE__*/function (_React$Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0__.Component);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (MainGraph);
+
+/***/ }),
+
+/***/ "./frontend/components/dashboard/main_graph/main_graph_container.jsx":
+/*!***************************************************************************!*\
+  !*** ./frontend/components/dashboard/main_graph/main_graph_container.jsx ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _main_graph__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./main_graph */ "./frontend/components/dashboard/main_graph/main_graph.jsx");
+
+
+
+var mapStateToProps = function mapStateToProps(_ref) {
+  var session = _ref.session,
+      _ref$entities = _ref.entities,
+      users = _ref$entities.users,
+      assets = _ref$entities.assets,
+      stocks = _ref$entities.stocks;
+  return {
+    currentUser: users[session.id],
+    assets: assets,
+    stocks: stocks
+  };
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(mapStateToProps, null)(_main_graph__WEBPACK_IMPORTED_MODULE_1__.default));
 
 /***/ }),
 
@@ -885,6 +1008,7 @@ var DropdownItems = /*#__PURE__*/function (_React$Component) {
       buying_power: _this.props.currentUser.buying_power
     };
     _this.portfolioValue = _this.portfolioValue.bind(_assertThisInitialized(_this));
+    _this.convert_to_decimal = _this.convert_to_decimal.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -894,6 +1018,22 @@ var DropdownItems = /*#__PURE__*/function (_React$Component) {
       this.portfolioValue();
     }
   }, {
+    key: "convert_to_decimal",
+    value: function convert_to_decimal(num) {
+      var convert = num;
+      var decimal = Math.abs(convert).toFixed(2);
+      var nums = decimal.toString();
+
+      if (nums.indexOf(".") === -1) {
+        nums += '..';
+      }
+
+      nums = decimal.toString().split(".");
+      nums[0] = nums[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      var converted = "$".concat(nums.join("."));
+      return converted;
+    }
+  }, {
     key: "portfolioValue",
     value: function portfolioValue() {
       var value = this.state.buying_power;
@@ -901,7 +1041,7 @@ var DropdownItems = /*#__PURE__*/function (_React$Component) {
       Object.values(this.props.assets).map(function (asset, idx) {
         value += asset.quantity * stocks[asset.stock_id].last_price;
       });
-      return value;
+      return this.convert_to_decimal(value);
     }
   }, {
     key: "render",
@@ -922,13 +1062,13 @@ var DropdownItems = /*#__PURE__*/function (_React$Component) {
         className: "nav-dropdown-portfolio-value-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
         className: "nav-dropdown-portfolio-value"
-      }, "$", this.portfolioValue()), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+      }, this.portfolioValue()), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
         className: "nav-dropdown-buying-power-text"
       }, "Portfolio Value")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "nav-dropdown-buying-power-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
         className: "nav-dropdown-buying-power"
-      }, "$", buying_power), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+      }, this.convert_to_decimal(buying_power)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
         className: "nav-dropdown-buying-power-text"
       }, "Buying Power")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "nav-dropdown-aboutme-section"
@@ -1226,12 +1366,8 @@ var mapStateToProps = function mapStateToProps(_ref) {
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
-    // logout: () => dispatch(logout()),
     getAllAssets: function getAllAssets(currentUserId) {
       return dispatch((0,_actions_asset_actions__WEBPACK_IMPORTED_MODULE_1__.getAllAssets)(currentUserId));
-    },
-    fetchStock: function fetchStock(stockId) {
-      return dispatch((0,_actions_stock_actions__WEBPACK_IMPORTED_MODULE_2__.fetchStock)(stockId));
     },
     fetchStocks: function fetchStocks() {
       return dispatch((0,_actions_stock_actions__WEBPACK_IMPORTED_MODULE_2__.fetchStocks)());
@@ -1399,7 +1535,7 @@ var NewsItems = /*#__PURE__*/function (_React$Component) {
         fill: "black"
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
         className: "article-heading-text"
-      }, "The Wall Street Journal"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+      }, "The HelloStocks Journal"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
         className: "article-heading-time"
       }, "4h")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "article-heading-button-container"
@@ -1427,7 +1563,7 @@ var NewsItems = /*#__PURE__*/function (_React$Component) {
         className: "article-content-text-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
         className: "article-content-text-span"
-      }, "Today TSLA, GME, DOGE, and BTC flew to the moon. Join the the next takeoff by purchasing shares today.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, "Today TSLA, GME, DOGE, and BTC flew to the moon. Should you join the the next takeoff by purchasing shares today?")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "article-content-link-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
         className: "article-content-link"
@@ -1446,7 +1582,7 @@ var NewsItems = /*#__PURE__*/function (_React$Component) {
         className: "news-article"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
         className: "article-link",
-        href: "/#/dashboard"
+        href: "https://wccftech.com/apple-aapl-patents-a-lidar-system-with-a-waveform-design-for-the-apple-car/"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "article-heading-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -1465,9 +1601,9 @@ var NewsItems = /*#__PURE__*/function (_React$Component) {
         fill: "black"
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
         className: "article-heading-text"
-      }, "The Wall Street Journal"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+      }, "WCCF Tech"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
         className: "article-heading-time"
-      }, "4h")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, "1h")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "article-heading-button-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("svg", {
         fill: "none",
@@ -1493,7 +1629,7 @@ var NewsItems = /*#__PURE__*/function (_React$Component) {
         className: "article-content-text-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
         className: "article-content-text-span"
-      }, "Today TSLA, GME, DOGE, and BTC flew to the moon.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, "Apple (AAPL) Patents a LIDAR System With a Waveform Design for the Apple Car")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "article-content-link-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
         className: "article-content-link"
@@ -1505,14 +1641,14 @@ var NewsItems = /*#__PURE__*/function (_React$Component) {
         className: "article-img-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
         className: "article-img",
-        src: "/#/dashboard"
+        src: window.aapl
       })))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "news-article-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("article", {
         className: "news-article"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
         className: "article-link",
-        href: "/#/dashboard"
+        href: "https://www.theverge.com/2021/3/25/22350173/google-assistant-memory-save-to-do-pocket-pinterest-notes-reminders"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "article-heading-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -1531,9 +1667,9 @@ var NewsItems = /*#__PURE__*/function (_React$Component) {
         fill: "black"
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
         className: "article-heading-text"
-      }, "The Wall Street Journal"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+      }, "The Verge"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
         className: "article-heading-time"
-      }, "4h")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, "2h")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "article-heading-button-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("svg", {
         fill: "none",
@@ -1559,7 +1695,7 @@ var NewsItems = /*#__PURE__*/function (_React$Component) {
         className: "article-content-text-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
         className: "article-content-text-span"
-      }, "Today TSLA, GME, DOGE, and BTC flew to the moon.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, "Google is testing Memory, an upgrade for Assistant to \u2018save and find everything\u2019")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "article-content-link-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
         className: "article-content-link"
@@ -1571,14 +1707,14 @@ var NewsItems = /*#__PURE__*/function (_React$Component) {
         className: "article-img-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
         className: "article-img",
-        src: "/#/dashboard"
+        src: window.google
       })))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "news-article-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("article", {
         className: "news-article"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
         className: "article-link",
-        href: "/#/dashboard"
+        href: "https://www.cnn.com/2021/03/25/tech/tech-ceos-hearing/index.html"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "article-heading-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -1597,9 +1733,9 @@ var NewsItems = /*#__PURE__*/function (_React$Component) {
         fill: "black"
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
         className: "article-heading-text"
-      }, "The Wall Street Journal"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+      }, "CNN"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
         className: "article-heading-time"
-      }, "4h")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, "30m")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "article-heading-button-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("svg", {
         fill: "none",
@@ -1625,7 +1761,7 @@ var NewsItems = /*#__PURE__*/function (_React$Component) {
         className: "article-content-text-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
         className: "article-content-text-span"
-      }, "Today TSLA, GME, DOGE, and BTC flew to the moon.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, "Facebook, Twitter and Google CEOs grilled by Congress on misinformation")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "article-content-link-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
         className: "article-content-link"
@@ -1637,14 +1773,14 @@ var NewsItems = /*#__PURE__*/function (_React$Component) {
         className: "article-img-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
         className: "article-img",
-        src: "/#/dashboard"
+        src: window.dc
       })))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "news-article-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("article", {
         className: "news-article"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
         className: "article-link",
-        href: "/#/dashboard"
+        href: "https://finance.yahoo.com/news/market-wrap-bitcoin-slips-52k-203147900.html"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "article-heading-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -1663,9 +1799,9 @@ var NewsItems = /*#__PURE__*/function (_React$Component) {
         fill: "black"
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
         className: "article-heading-text"
-      }, "The Wall Street Journal"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+      }, "Yahoo Finance"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
         className: "article-heading-time"
-      }, "4h")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, "5h")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "article-heading-button-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("svg", {
         fill: "none",
@@ -1691,7 +1827,7 @@ var NewsItems = /*#__PURE__*/function (_React$Component) {
         className: "article-content-text-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
         className: "article-content-text-span"
-      }, "Today TSLA, GME, DOGE, and BTC flew to the moon.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, "Market Wrap: Bitcoin Slips to $52K; All Eyes on Friday\u2019s $6B Options Expiry")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "article-content-link-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
         className: "article-content-link"
@@ -1703,14 +1839,14 @@ var NewsItems = /*#__PURE__*/function (_React$Component) {
         className: "article-img-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
         className: "article-img",
-        src: "/#/dashboard"
+        src: window.btc
       })))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "news-article-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("article", {
         className: "news-article"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
         className: "article-link",
-        href: "/#/dashboard"
+        href: "https://markets.businessinsider.com/news/stocks/gamestop-stock-new-price-target-jefferies-reddit-traders-celebrating-2021-3-1030242026"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "article-heading-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -1727,9 +1863,9 @@ var NewsItems = /*#__PURE__*/function (_React$Component) {
         fill: "black"
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
         className: "article-heading-text"
-      }, "The Wall Street Journal"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+      }, "Business Insider"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
         className: "article-heading-time"
-      }, "4h")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, "1h")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "article-heading-button-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("svg", {
         fill: "none",
@@ -1755,7 +1891,7 @@ var NewsItems = /*#__PURE__*/function (_React$Component) {
         className: "article-content-text-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
         className: "article-content-text-span"
-      }, "Today TSLA, GME, DOGE, and BTC flew to the moon.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, "GameStop's new $175 price target from Jefferies has Reddit traders celebrating")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "article-content-link-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
         className: "article-content-link"
@@ -1767,14 +1903,14 @@ var NewsItems = /*#__PURE__*/function (_React$Component) {
         className: "article-img-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
         className: "article-img",
-        src: "/#/dashboard"
+        src: window.gme
       })))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "news-article-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("article", {
         className: "news-article"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
         className: "article-link",
-        href: "/#/dashboard"
+        href: "https://www.cnbc.com/2021/03/25/vizio-ipo-comes-14-years-after-company-took-us-tv-market-by-storm.html"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "article-heading-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -1793,7 +1929,7 @@ var NewsItems = /*#__PURE__*/function (_React$Component) {
         fill: "black"
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
         className: "article-heading-text"
-      }, "The Wall Street Journal"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+      }, "CNBC"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
         className: "article-heading-time"
       }, "4h")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "article-heading-button-container"
@@ -1821,26 +1957,26 @@ var NewsItems = /*#__PURE__*/function (_React$Component) {
         className: "article-content-text-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
         className: "article-content-text-span"
-      }, "Today TSLA, GME, DOGE, and BTC flew to the moon.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, "Vizio slumps 9% in NYSE debut 14 years after company took TV market by storm.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "article-content-link-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
         className: "article-content-link"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
         className: "article-content-link-tikr-span"
-      }, "TSLA"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+      }, "VZIO"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
         className: "article-content-link-tikr-percent"
-      }, "4.36%")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, "-9.12%")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "article-img-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
         className: "article-img",
-        src: "/#/dashboard"
+        src: window.nyse
       })))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "news-article-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("article", {
         className: "news-article"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
         className: "article-link",
-        href: "/#/dashboard"
+        href: "https://www.bloomberg.com/news/articles/2021-03-24/tesla-tsla-and-elon-musk-s-dominance-is-threatened-by-volkswagen"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "article-heading-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -1859,9 +1995,9 @@ var NewsItems = /*#__PURE__*/function (_React$Component) {
         fill: "black"
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
         className: "article-heading-text"
-      }, "The Wall Street Journal"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+      }, "Bloomberg"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
         className: "article-heading-time"
-      }, "4h")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, "2h")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "article-heading-button-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("svg", {
         fill: "none",
@@ -1887,7 +2023,7 @@ var NewsItems = /*#__PURE__*/function (_React$Component) {
         className: "article-content-text-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
         className: "article-content-text-span"
-      }, "Today TSLA, GME, DOGE, and BTC flew to the moon.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, "The End of Tesla\u2019s Dominance May Be Closer Than It Appears.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "article-content-link-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
         className: "article-content-link"
@@ -1899,7 +2035,7 @@ var NewsItems = /*#__PURE__*/function (_React$Component) {
         className: "article-img-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
         className: "article-img",
-        src: "/#/dashboard"
+        src: window.tsla
       })))))));
     }
   }]);
@@ -2207,6 +2343,7 @@ var AssetItems = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.allAssets = _this.allAssets.bind(_assertThisInitialized(_this));
+    _this.convert_to_decimal = _this.convert_to_decimal.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -2217,8 +2354,26 @@ var AssetItems = /*#__PURE__*/function (_React$Component) {
       this.props.fetchStocks();
     }
   }, {
+    key: "convert_to_decimal",
+    value: function convert_to_decimal(num) {
+      var convert = num;
+      var decimal = Math.abs(convert).toFixed(2);
+      var nums = decimal.toString();
+
+      if (nums.indexOf(".") === -1) {
+        nums += '..';
+      }
+
+      nums = decimal.toString().split(".");
+      nums[0] = nums[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      var converted = "$".concat(nums.join("."));
+      return converted;
+    }
+  }, {
     key: "allAssets",
     value: function allAssets() {
+      var _this2 = this;
+
       var stocks = this.props.stocks;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "assets-items-div"
@@ -2235,11 +2390,11 @@ var AssetItems = /*#__PURE__*/function (_React$Component) {
           className: "asset-item-shares"
         }, asset.quantity)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "asset-item-graph"
-        }, "Graph"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "asset-item-right"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "asset-item-last-price"
-        }, "$", stocks[asset.stock_id].last_price), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        }, _this2.convert_to_decimal(stocks[asset.stock_id].last_price)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "asset-item-percent-change"
         }, stocks[asset.stock_id].percent_change, "%")));
       }));
@@ -2273,7 +2428,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _actions_asset_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../actions/asset_actions */ "./frontend/actions/asset_actions.js");
-/* harmony import */ var _asset_items__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./asset_items */ "./frontend/components/dashboard/sidebar/portfolio/asset_items.jsx");
+/* harmony import */ var _actions_stock_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../actions/stock_actions */ "./frontend/actions/stock_actions.js");
+/* harmony import */ var _asset_items__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./asset_items */ "./frontend/components/dashboard/sidebar/portfolio/asset_items.jsx");
+
 
 
 
@@ -2296,36 +2453,13 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     getAllAssets: function getAllAssets(currentUserId) {
       return dispatch((0,_actions_asset_actions__WEBPACK_IMPORTED_MODULE_1__.getAllAssets)(currentUserId));
     },
-    fetchStock: function (_fetchStock) {
-      function fetchStock(_x) {
-        return _fetchStock.apply(this, arguments);
-      }
-
-      fetchStock.toString = function () {
-        return _fetchStock.toString();
-      };
-
-      return fetchStock;
-    }(function (stockId) {
-      return dispatch(fetchStock(stockId));
-    }),
-    fetchStocks: function (_fetchStocks) {
-      function fetchStocks() {
-        return _fetchStocks.apply(this, arguments);
-      }
-
-      fetchStocks.toString = function () {
-        return _fetchStocks.toString();
-      };
-
-      return fetchStocks;
-    }(function () {
-      return dispatch(fetchStocks());
-    })
+    fetchStocks: function fetchStocks() {
+      return dispatch((0,_actions_stock_actions__WEBPACK_IMPORTED_MODULE_2__.fetchStocks)());
+    }
   };
 };
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(mapStateToProps, mapDispatchToProps)(_asset_items__WEBPACK_IMPORTED_MODULE_2__.default));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(mapStateToProps, mapDispatchToProps)(_asset_items__WEBPACK_IMPORTED_MODULE_3__.default));
 
 /***/ }),
 

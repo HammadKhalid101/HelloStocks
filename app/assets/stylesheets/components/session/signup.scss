@@ -83,6 +83,13 @@
     margin-top: 17px;
 }
 
+.signup-form {
+
+    input:focus {
+        border: 1px solid #00b405;
+    }
+}
+
 .signup-form-top {
     margin-bottom: 16px;
 }
@@ -123,7 +130,7 @@
 }
 
 .signup-form-fname-input:hover {
-    outline: none !important;
+    outline: #00b405 !important;
     background-color: white;
     box-sizing: border-box;
     border: 1px solid #e0e0e0;

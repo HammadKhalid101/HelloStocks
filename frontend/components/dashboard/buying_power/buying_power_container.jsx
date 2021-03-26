@@ -1,12 +1,15 @@
 import { connect } from 'react-redux';
-import MainGraph from './main_graph';
+import BuyingPower from './buying_power';
 
 const mapStateToProps = ({session, entities: { users, assets, stocks }}) => {
+    
     return {
         currentUser: users[session.id],
-        assets: assets,
-        stocks: stocks,
     };
 };
 
-export default connect(mapStateToProps, null)(MainGraph);
+const mapDispatchToProps = dispatch => {
+    
+};
+
+export default connect(mapStateToProps, null)(BuyingPower);
