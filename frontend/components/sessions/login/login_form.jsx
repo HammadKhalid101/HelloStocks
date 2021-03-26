@@ -28,11 +28,16 @@ class LoginForm extends React.Component {
         this.props.processForm(this.state);
     }
 
-    handleDemoUser() {
+    handleDemoUser(e) {
         this.props.processForm({
             username: 'demotrades',
             password: 'password1234'
         })
+        
+        // this.props.loginDemo({
+        //     username: 'demotrades',
+        //     password: 'password1234'
+        // });
     }
 
     renderErrors() {

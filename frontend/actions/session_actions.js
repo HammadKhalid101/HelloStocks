@@ -1,6 +1,7 @@
 import * as APIUtil from '../util/session_api_util'
 
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
+export const RECEIVE_DEMO_USER = 'RECEIVE_DEMO_USER';
 export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
 export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 export const CLEAR_SESSION_ERRORS = 'CLEAR_SESSION_ERRORS';
@@ -11,7 +12,15 @@ export const receiveCurrentUser = (currentUser) => {
         type: RECEIVE_CURRENT_USER,
         currentUser,
     }
-}; 
+};
+
+export const receiveDemoUser = (currentUser) => {
+    
+    return {
+        type: RECEIVE_DEMO_USER,
+        currentUser,
+    }
+}
 
 // logoutCurrentUser will not accept any arguments
 export const logoutCurrentUser = () => {
@@ -58,4 +67,13 @@ export const logout = () => dispatch => {
     return APIUtil.logout().then((user) => (
         dispatch(logoutCurrentUser())
     ))
+};
+
+export const loginDemoUser = (demoUser) => dispatch => {
+    
+    return APIUtil.loginDemoUser(demoUser).then((demoUser) => (
+        dispatch(receiveDemoUser(demoUser))
+    ), err => {
+      return dispatch(receiveErrors(err.responseJSON))
+    })
 };
