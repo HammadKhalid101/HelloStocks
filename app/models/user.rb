@@ -25,7 +25,7 @@ class User < ApplicationRecord
 
     has_many :owned_stocks, through: :assets, source: :stocks
 
-    after_initialize :ensure_session_token
+    after_initialize :ensure_session_token, :ensure_buying_power
 
     def self.find_by_credentials(username, password)
         user = User.find_by(username: username) || User.find_by(email: username)
@@ -45,6 +45,10 @@ class User < ApplicationRecord
 
     def generate_session_token 
         SecureRandom.urlsafe_base64(16)
+    end
+
+    def ensure_buying_power 
+        self.buying_power ||= self.buying_power = 25000
     end
 
     def ensure_session_token
