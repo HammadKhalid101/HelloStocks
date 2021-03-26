@@ -23,8 +23,8 @@ class Dashboard extends React.Component {
                         <News />
                         <footer className="dashboard-left-side-footer">
                             <div className="dashboard-left-side-footer-content">
-                                <span className="dashboard-privacy-policy-span">For more information, see our 
-                                    <a  className="dashboard-privacy-policy-link" href="/#/dashboard">Privacy Policy</a>
+                                <span className="dashboard-privacy-policy-span">For more information, see our
+                                    <a  className="dashboard-privacy-policy-link" href="/#/dashboard"> Privacy Policy.</a>
                                 </span>
                             </div>
                         </footer>

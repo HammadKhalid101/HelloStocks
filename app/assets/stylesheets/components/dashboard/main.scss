@@ -59,6 +59,10 @@
     margin-right: 5px;
 }
 
+.main-graph-portfolio-value-today-span {
+    font-size: 13px;
+}
+
 .dashboard-main-graph-container {
     height: 196px;
 
@@ -257,17 +261,117 @@
     .news-article-div {
         height: 155px;
         padding: 0 2px;
-        display: flex;
         border-bottom: 1px solid #e3e9ed;
-        justify-content: flex-start;
-        align-items: center;
-        text-decoration: none;
-        outline: none;
 
         article {
-            height: inherit;
+            height: 106px;
             width: 100%;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            flex-flow: column nowrap;
+            position: relative;
+            transition: background .15s;
+            margin: -1px -24px;
+            padding: 25px 24px;
+
+            a {
+                text-decoration: none;
+                color: black;
+            }
         }
+
+        article:hover {
+            background-color: #ececec;
+            cursor: pointer;
+        }
+    }
+}
+
+.article-heading-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+
+    .article-heading {
+        font-size: 13px;
+
+    }
+}
+
+.article-heading-button-container:hover {
+    color:rgb(0, 180, 5);
+}
+
+.article-heading-svg-span {
+    margin-right: 8px;
+}
+
+.article-content-text-div {
+    display: flex;
+    min-height: 56px;
+    margin-bottom: 8px;
+    line-height: 25px;
+
+    span {
+        font-size: 16px;
+    }
+}
+
+.article-heading-text {
+    margin-right: 8px;
+    font-weight: 600;
+}
+
+.article-content-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.article-content {
+    flex-flow: column nowrap;
+    flex: 1;
+}
+
+.article-content-link-tikr-span {
+    margin-right: 10px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.article-content-link-tikr-span {
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    font-family: fangsong;
+}
+
+.article-img-div {
+    margin-left: 24px;
+    display: flex;
+    width: 130px;
+    box-sizing: inherit;
+    height: 78px;
+
+    img {
+        width: inherit;
+        height: inherit;
+    }
+}
+
+.dashboard-left-side-footer {
+    margin-top: 30px;
+    margin-bottom: 60px;
+
+    span {
+        font-size: 13px;
+        color: rgb(180, 189, 194);
+    }
+
+    a {
+        text-decoration: none;
+        color: rgb(0, 180, 5);
     }
 }
 
@@ -276,7 +380,7 @@
     height: inherit;
     position: fixed;
     width: 276px;
-    box-shadow: -1px 1px 12px 12px #f4f4f4;
+    box-shadow: 2px -1px 12px 12px #f4f4f4;
 }
 
 .sidebar-portfolio-container {

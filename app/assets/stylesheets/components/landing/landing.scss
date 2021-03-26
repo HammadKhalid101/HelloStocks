@@ -54,6 +54,10 @@
     color: limegreen;
 }
 
+.main-nav-buttons:focus {
+    outline: none !important;
+}
+
 .login-signup-links {
     padding-right: 18px;
     padding-top: 7px;
