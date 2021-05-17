@@ -1,340 +1,337 @@
 .landing-page-main-div {
-    background-color: white;
+  background-color: white;
 }
 
 .landing-page-main-nav {
-    display: flex;
-    background-color: white;
-    height: 64px;
-    position: relative;
+  display: flex;
+  background-color: white;
+  height: 64px;
+  position: relative;
 }
 
 .main-nav-links {
-    display: flex;
-    width: 100%;
-    justify-content: flex-start;
-    box-shadow: 0px 1px 3px 0px #bdbdbd;
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  box-shadow: 0px 1px 3px 0px #bdbdbd;
 }
 
 .greeting-container-div {
-    margin-left: auto;
+  margin-left: auto;
 }
 
 .main-nav-hellostocks-link {
-    display: inline-flex;
-    // padding-left: 15px;
-    // padding-top: 12px;
+  display: inline-flex;
+  // padding-left: 15px;
+  // padding-top: 12px;
 }
 
 .main-nav-mid {
-    display: inline-flex;
-    margin-right: auto;
+  display: inline-flex;
+  margin-right: auto;
 }
 
 .main-nav-ul {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .main-nav-buttons {
-    color: inherit;
-    text-decoration: none;
-    align-items: center;
-    cursor: pointer;
-    display: inline-flex;
-    justify-content: center;
-    min-width: 144px;
-    font-size: 18px;
-    background: none;
-    border: none;
+  color: inherit;
+  text-decoration: none;
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  min-width: 144px;
+  font-size: 18px;
+  background: none;
+  border: none;
 }
 
 .main-nav-buttons:hover {
-    color: limegreen;
+  color: limegreen;
 }
 
 .main-nav-buttons:focus {
-    outline: none !important;
+  outline: none !important;
 }
 
 .login-signup-links {
-    padding-right: 18px;
-    padding-top: 7px;
+  padding-right: 18px;
+  padding-top: 7px;
 }
 
 .main-nav-login-link {
-    color: inherit;
-    text-decoration: none;
-    // align-items: center;
-    cursor: pointer;
-    // display: inline-flex;
-    // justify-content: center;
-    // min-width: 144px;
-    font-weight: 600;
-    font-size: 18px;
+  color: inherit;
+  text-decoration: none;
+  // align-items: center;
+  cursor: pointer;
+  // display: inline-flex;
+  // justify-content: center;
+  // min-width: 144px;
+  font-weight: 600;
+  font-size: 18px;
 }
 
 .main-nav-login-link:hover {
-    color: limegreen;
+  color: limegreen;
 }
 
 .main-nav-signup-link {
-    color: inherit;
-    text-decoration: none;
-    align-items: center;
-    cursor: pointer;
-    display: inline-flex;
-    justify-content: center;
-    height: 48px;
-    min-width: 144px;
-    border-radius: 25px;
-    background-color: rgb(0, 200, 5);
-    font-weight: 600;
-    font-size: 18px;
-    margin-left: 30px;
+  color: inherit;
+  text-decoration: none;
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  height: 48px;
+  min-width: 144px;
+  border-radius: 25px;
+  background-color: rgb(0, 200, 5);
+  font-weight: 600;
+  font-size: 18px;
+  margin-left: 30px;
 }
 
 .main-nav-signup-link:hover {
-    background-color: rgb(0, 180, 5);
+  background-color: rgb(0, 180, 5);
 }
 
 .first-section {
-    background-color: rgb(195,245,60);
-    border-bottom: 1px solid rgb(0, 0, 0);
-    width: 100%;
-    height: 650px;
+  background-color: rgb(195, 245, 60);
+  border-bottom: 1px solid rgb(0, 0, 0);
+  width: 100%;
+  height: 650px;
 }
 
 .landing-page-header-div {
-    display: flex;
+  display: flex;
 }
 
 .landing-page-header-left-div {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    margin-left: 9px;
-    margin-right: 9px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-left: 9px;
+  margin-right: 9px;
 }
 
 .landing-page-header-div h1 {
-    font-size: 52px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 60px;
-    width: 300px;
+  font-size: 52px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 60px;
+  width: 300px;
 }
 
 .landing-page-header-div p {
-    font-style: normal;
-    font-weight: 500;
-    font-size: 24px;
-    line-height: 40px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 40px;
 }
 
 .commissions-modal-button {
-    display: flex;
-    align-items: center;
-    border: none;
-    font-size: 16px;
-    background-color: #c3f53c;
-    font-weight: bold;
+  display: flex;
+  align-items: center;
+  border: none;
+  font-size: 16px;
+  background-color: #c3f53c;
+  font-weight: bold;
 }
 
 .commissions-modal-button:hover {
-    color: rgb(0, 180, 5);
-    cursor: pointer;
+  color: rgb(0, 180, 5);
+  cursor: pointer;
 }
 
 .commissions-modal-button:focus {
-    outline: none !important;
+  outline: none !important;
 }
 
 .commissions-modal-button-logo-div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 25px;
-    width: 25px;
-    border: 3px solid black;
-    border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25px;
+  width: 25px;
+  border: 3px solid black;
+  border-radius: 50%;
 }
 
 .commissions-modal-span {
-    margin-left: 10px;
+  margin-left: 10px;
 }
 
 .landing-page-header {
-    display: flex;
-    align-items: center;
-    min-width: 1280px;
-    max-width: 1280px;
-    padding-left: 37px;
-    padding-right: 37px;
-    width: 100%;
-    height: inherit;
-    margin: auto;
+  display: flex;
+  align-items: center;
+  min-width: 1280px;
+  max-width: 1280px;
+  padding-left: 37px;
+  padding-right: 37px;
+  width: 100%;
+  height: inherit;
+  margin: auto;
 }
 
 .landing-page-header-vid-div {
-    display: flex;
-    justify-content: center;
-    margin-left: 9px;
-    margin-right: 9px;
-    width: 696px;
-    visibility: visible;
+  display: flex;
+  justify-content: center;
+  margin-left: 9px;
+  margin-right: 9px;
+  width: 696px;
+  visibility: visible;
 }
 
 .landing-page-header-vid {
-    width: inherit;
-    position: absolute;
-    margin-left: px;
-
+  width: inherit;
+  position: absolute;
+  margin-left: px;
 }
 
 .landing-page-header-img {
-    width: inherit;
-    z-index: 1;
+  width: inherit;
+  z-index: 1;
 }
 
 .landing-page-header-signup-link {
-    color: white;
-    text-decoration: none;
-    align-items: center;
-    cursor: pointer;
-    display: inline-flex;
-    justify-content: center;
-    height: 48px;
-    min-width: 144px;
-    border-radius: 25px;
-    background-color: black;
-    font-weight: 600;
-    font-size: 18px;
+  color: white;
+  text-decoration: none;
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  height: 48px;
+  min-width: 144px;
+  border-radius: 25px;
+  background-color: black;
+  font-weight: 600;
+  font-size: 18px;
 }
 
 .landing-page-header-signup-link:hover {
-    background-color: rgb(42, 49, 55);
+  background-color: rgb(42, 49, 55);
 }
 
 .second-section {
-    background-color: white;
-    border-bottom: 1px solid black;
-    width: 100%;
-    height: 100px;
+  background-color: white;
+  border-bottom: 1px solid black;
+  width: 100%;
+  height: 100px;
 }
 
 .second-section-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-width: 1280px;
-    max-width: 1280px;
-    padding-left: 37px;
-    padding-right: 37px;
-    width: 100%;
-    height: inherit;
-    margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 1280px;
+  max-width: 1280px;
+  padding-left: 37px;
+  padding-right: 37px;
+  width: 100%;
+  height: inherit;
+  margin: auto;
 }
 
 .second-section-text {
-    font-size: 18px;
+  font-size: 18px;
 }
 
 .second-section-modal-button {
-    border: none;
-    background-color: white;
+  border: none;
+  background-color: white;
 }
 
 .second-section-modal-button:hover {
-    color: rgb(0, 180, 5);
-    cursor: pointer;
+  color: rgb(0, 180, 5);
+  cursor: pointer;
 }
 
 .second-section-modal-button:focus {
-    outline: none !important;
+  outline: none !important;
 }
 
 .second-section-modal-button-text {
-    font-size: 18px;
-    text-decoration: underline solid;
+  font-size: 18px;
+  text-decoration: underline solid;
 }
 
 .third-section {
-    display: flex;
-    background-color: white;
-    border-bottom: 1px solid black;
-    width: 100%;
-    height: 452px;
-    min-width: 1280px;
-    // max-width: 1280px;
+  display: flex;
+  background-color: white;
+  border-bottom: 1px solid black;
+  width: 100%;
+  height: 452px;
+  min-width: 1280px;
+  // max-width: 1280px;
 }
 
 .third-section-left {
-    width: 50%;
+  width: 50%;
 }
 
 .third-section-vid-div {
-    height: 452px;
+  height: 452px;
 }
 
 .third-section-vid {
-    width: 100%;
-    object-fit: cover;
-    object-position: center;
-    height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  height: 100%;
 }
 
 .third-section-right {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
 }
 
 .third-section-right-modal-content {
-    margin-right: 102px;
+  margin-right: 102px;
 }
 
 .third-section-right-modal-div {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .third-section-right-heading {
-    font-size: 52px;
-    font-weight: 500;
+  font-size: 52px;
+  font-weight: 500;
 }
 
 .third-section-modal-button {
-    border: none;
-    background-color: white;
+  border: none;
+  background-color: white;
 }
 
 .third-section-modal-button:hover {
-    color: rgb(0, 180, 5);
-    cursor: pointer;
+  color: rgb(0, 180, 5);
+  cursor: pointer;
 }
 
 .third-section-modal-button:focus {
-    outline: none !important;
+  outline: none !important;
 }
 
 .third-section-modal-button-span {
-    font-size: 18px;
-    font-weight: 600;;
+  font-size: 18px;
+  font-weight: 600;
 }
 
 .landing-page-mid-content {
-    background-color: white;
-    border-bottom: 1px solid black;
-    width: 100%;
-    height: 822px;
+  background-color: white;
+  border-bottom: 1px solid black;
+  width: 100%;
+  height: 822px;
 }
 
 .landing-page-footer-container {
-    background-color: black;
-    width: 100%;
-    height: 822px;
+  background-color: black;
+  width: 100%;
+  height: 822px;
 }
-
-

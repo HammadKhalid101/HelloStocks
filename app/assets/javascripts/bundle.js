@@ -130,11 +130,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _util_asset_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/asset_api_util */ "./frontend/util/asset_api_util.js");
 
-var RECEIVE_ASSET = 'RECEIVE_ASSET';
-var RECEIVE_ASSETS = 'RECEIVE_ASSETS';
-var DELETE_ASSET = 'DELETE_ASSET';
-var RECEIVE_ASSET_ERRORS = 'RECEIVE_ASSET_ERRORS';
-var CLEAR_ASSET_ERRORS = 'CLEAR_ASSET_ERRORS'; // receiveAsset will accept an asset object as an argument
+var RECEIVE_ASSET = "RECEIVE_ASSET";
+var RECEIVE_ASSETS = "RECEIVE_ASSETS";
+var DELETE_ASSET = "DELETE_ASSET";
+var RECEIVE_ASSET_ERRORS = "RECEIVE_ASSET_ERRORS";
+var CLEAR_ASSET_ERRORS = "CLEAR_ASSET_ERRORS"; // receiveAsset will accept an asset object as an argument
 
 var receiveAsset = function receiveAsset(asset) {
   return {
@@ -239,40 +239,37 @@ var sellAsset = function sellAsset(userId, assetId) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "RECEIVE_CURRENT_USER": () => (/* binding */ RECEIVE_CURRENT_USER),
-/* harmony export */   "RECEIVE_DEMO_USER": () => (/* binding */ RECEIVE_DEMO_USER),
 /* harmony export */   "LOGOUT_CURRENT_USER": () => (/* binding */ LOGOUT_CURRENT_USER),
 /* harmony export */   "RECEIVE_SESSION_ERRORS": () => (/* binding */ RECEIVE_SESSION_ERRORS),
 /* harmony export */   "CLEAR_SESSION_ERRORS": () => (/* binding */ CLEAR_SESSION_ERRORS),
 /* harmony export */   "receiveCurrentUser": () => (/* binding */ receiveCurrentUser),
-/* harmony export */   "receiveDemoUser": () => (/* binding */ receiveDemoUser),
 /* harmony export */   "logoutCurrentUser": () => (/* binding */ logoutCurrentUser),
 /* harmony export */   "receiveErrors": () => (/* binding */ receiveErrors),
 /* harmony export */   "clearErrors": () => (/* binding */ clearErrors),
 /* harmony export */   "signup": () => (/* binding */ signup),
 /* harmony export */   "login": () => (/* binding */ login),
-/* harmony export */   "logout": () => (/* binding */ logout),
-/* harmony export */   "loginDemoUser": () => (/* binding */ loginDemoUser)
+/* harmony export */   "logout": () => (/* binding */ logout)
 /* harmony export */ });
 /* harmony import */ var _util_session_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/session_api_util */ "./frontend/util/session_api_util.js");
 
-var RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
-var RECEIVE_DEMO_USER = 'RECEIVE_DEMO_USER';
-var LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
-var RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
-var CLEAR_SESSION_ERRORS = 'CLEAR_SESSION_ERRORS'; // receiveCurrentUser will accept an user object as an argument
+var RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER"; // export const RECEIVE_DEMO_USER = "RECEIVE_DEMO_USER";
+
+var LOGOUT_CURRENT_USER = "LOGOUT_CURRENT_USER";
+var RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
+var CLEAR_SESSION_ERRORS = "CLEAR_SESSION_ERRORS"; // receiveCurrentUser will accept an user object as an argument
 
 var receiveCurrentUser = function receiveCurrentUser(currentUser) {
   return {
     type: RECEIVE_CURRENT_USER,
     currentUser: currentUser
   };
-};
-var receiveDemoUser = function receiveDemoUser(currentUser) {
-  return {
-    type: RECEIVE_DEMO_USER,
-    currentUser: currentUser
-  };
-}; // logoutCurrentUser will not accept any arguments
+}; // export const receiveDemoUser = (currentUser) => {
+//   return {
+//     type: RECEIVE_DEMO_USER,
+//     currentUser,
+//   };
+// };
+// logoutCurrentUser will not accept any arguments
 
 var logoutCurrentUser = function logoutCurrentUser() {
   return {
@@ -305,6 +302,7 @@ var signup = function signup(user) {
 
 var login = function login(user) {
   return function (dispatch) {
+    //   debugger;
     return _util_session_api_util__WEBPACK_IMPORTED_MODULE_0__.login(user).then(function (user) {
       return dispatch(receiveCurrentUser(user));
     }, function (err) {
@@ -319,16 +317,15 @@ var logout = function logout() {
       return dispatch(logoutCurrentUser());
     });
   };
-};
-var loginDemoUser = function loginDemoUser(demoUser) {
-  return function (dispatch) {
-    return _util_session_api_util__WEBPACK_IMPORTED_MODULE_0__.loginDemoUser(demoUser).then(function (demoUser) {
-      return dispatch(receiveDemoUser(demoUser));
-    }, function (err) {
-      return dispatch(receiveErrors(err.responseJSON));
-    });
-  };
-};
+}; // export const loginDemoUser = (demoUser) => (dispatch) => {
+//   debugger;
+//   return APIUtil.loginDemoUser(demoUser).then(
+//     (demoUser) => dispatch(receiveDemoUser(demoUser)),
+//     (err) => {
+//       return dispatch(receiveErrors(err.responseJSON));
+//     }
+//   );
+// };
 
 /***/ }),
 
@@ -354,10 +351,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _util_stock_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/stock_api_util */ "./frontend/util/stock_api_util.js");
 
-var RECEIVE_STOCK = 'RECEIVE_STOCK';
-var RECEIVE_STOCKS = 'RECEIVE_STOCKS';
-var RECEIVE_STOCK_ERRORS = 'RECEIVE_STOCK_ERRORS';
-var CLEAR_STOCK_ERRORS = 'CLEAR_STOCK_ERRORS'; // receiveStock will a stock object as an argument
+var RECEIVE_STOCK = "RECEIVE_STOCK";
+var RECEIVE_STOCKS = "RECEIVE_STOCKS";
+var RECEIVE_STOCK_ERRORS = "RECEIVE_STOCK_ERRORS";
+var CLEAR_STOCK_ERRORS = "CLEAR_STOCK_ERRORS"; // receiveStock will a stock object as an argument
 
 var receiveStock = function receiveStock(stock) {
   return {
@@ -420,12 +417,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
-/* harmony import */ var _sessions_login_login_form_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./sessions/login/login_form_container */ "./frontend/components/sessions/login/login_form_container.jsx");
-/* harmony import */ var _sessions_signup_signup_form_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./sessions/signup/signup_form_container */ "./frontend/components/sessions/signup/signup_form_container.jsx");
-/* harmony import */ var _util_route_util__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../util/route_util */ "./frontend/util/route_util.jsx");
-/* harmony import */ var _greeting_landing__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./greeting/landing */ "./frontend/components/greeting/landing.jsx");
-/* harmony import */ var _dashboard_dashboard__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./dashboard/dashboard */ "./frontend/components/dashboard/dashboard.jsx");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _sessions_login_login_form_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./sessions/login/login_form_container */ "./frontend/components/sessions/login/login_form_container.jsx");
+/* harmony import */ var _sessions_signup_signup_form_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./sessions/signup/signup_form_container */ "./frontend/components/sessions/signup/signup_form_container.jsx");
+/* harmony import */ var _util_route_util__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../util/route_util */ "./frontend/util/route_util.jsx");
+/* harmony import */ var _greeting_landing__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./greeting/landing */ "./frontend/components/greeting/landing.jsx");
+/* harmony import */ var _dashboard_dashboard_container__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./dashboard/dashboard_container */ "./frontend/components/dashboard/dashboard_container.jsx");
 
 
 
@@ -435,21 +432,21 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var App = function App() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Switch, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Switch, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Route, {
     exact: true,
     path: "/",
-    component: _greeting_landing__WEBPACK_IMPORTED_MODULE_4__.default
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_3__.AuthRoute, {
+    component: _greeting_landing__WEBPACK_IMPORTED_MODULE_5__.default
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_4__.AuthRoute, {
     exact: true,
     path: "/login",
-    component: _sessions_login_login_form_container__WEBPACK_IMPORTED_MODULE_1__.default
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_3__.AuthRoute, {
+    component: _sessions_login_login_form_container__WEBPACK_IMPORTED_MODULE_2__.default
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_4__.AuthRoute, {
     exact: true,
     path: "/signup",
-    component: _sessions_signup_signup_form_container__WEBPACK_IMPORTED_MODULE_2__.default
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_3__.ProtectedRoute, {
+    component: _sessions_signup_signup_form_container__WEBPACK_IMPORTED_MODULE_3__.default
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_4__.ProtectedRoute, {
     path: "/dashboard",
-    component: _dashboard_dashboard__WEBPACK_IMPORTED_MODULE_5__.default
+    component: _dashboard_dashboard_container__WEBPACK_IMPORTED_MODULE_6__.default
   }));
 };
 
@@ -641,6 +638,12 @@ var Dashboard = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(Dashboard, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.fetchStocks();
+      this.props.getAllAssets(this.props.currentUser.id);
+    }
+  }, {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -660,7 +663,7 @@ var Dashboard = /*#__PURE__*/function (_React$Component) {
       }, "For more information, see our", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
         className: "dashboard-privacy-policy-link",
         href: "/#/dashboard"
-      }, " Privacy Policy."))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, " ", "Privacy Policy."))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "dashboard-right-side"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "dashboard-sidebar-container"
@@ -672,6 +675,54 @@ var Dashboard = /*#__PURE__*/function (_React$Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0__.Component);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Dashboard);
+
+/***/ }),
+
+/***/ "./frontend/components/dashboard/dashboard_container.jsx":
+/*!***************************************************************!*\
+  !*** ./frontend/components/dashboard/dashboard_container.jsx ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _dashboard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./dashboard */ "./frontend/components/dashboard/dashboard.jsx");
+/* harmony import */ var _actions_asset_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/asset_actions */ "./frontend/actions/asset_actions.js");
+/* harmony import */ var _actions_stock_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/stock_actions */ "./frontend/actions/stock_actions.js");
+
+
+
+
+
+var mapStateToProps = function mapStateToProps(_ref) {
+  var session = _ref.session,
+      _ref$entities = _ref.entities,
+      users = _ref$entities.users,
+      assets = _ref$entities.assets,
+      stocks = _ref$entities.stocks;
+  return {
+    currentUser: users[session.id],
+    assets: assets,
+    stocks: stocks
+  };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    getAllAssets: function getAllAssets(currentUserId) {
+      return dispatch((0,_actions_asset_actions__WEBPACK_IMPORTED_MODULE_2__.getAllAssets)(currentUserId));
+    },
+    fetchStocks: function fetchStocks() {
+      return dispatch((0,_actions_stock_actions__WEBPACK_IMPORTED_MODULE_3__.fetchStocks)());
+    }
+  };
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(mapStateToProps, mapDispatchToProps)(_dashboard__WEBPACK_IMPORTED_MODULE_1__.default));
 
 /***/ }),
 
@@ -726,14 +777,12 @@ var MainGraph = /*#__PURE__*/function (_React$Component) {
     _this.portfolioValue = _this.portfolioValue.bind(_assertThisInitialized(_this));
     _this.convert_to_decimal = _this.convert_to_decimal.bind(_assertThisInitialized(_this));
     return _this;
-  }
+  } //   componentDidMount() {
+  //     this.portfolioValue();
+  //   }
+
 
   _createClass(MainGraph, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      this.portfolioValue();
-    }
-  }, {
     key: "convert_to_decimal",
     value: function convert_to_decimal(num) {
       var convert = num;
@@ -741,7 +790,7 @@ var MainGraph = /*#__PURE__*/function (_React$Component) {
       var nums = decimal.toString();
 
       if (nums.indexOf(".") === -1) {
-        nums += '..';
+        nums += "..";
       }
 
       nums = decimal.toString().split(".");
@@ -762,6 +811,10 @@ var MainGraph = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      if (!this.props.stocks || !this.props.assets) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Loading......");
+      }
+
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("section", {
         className: "dashboard-main-graph-section"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("header", {
@@ -923,7 +976,7 @@ var Dropdown = /*#__PURE__*/function (_React$Component) {
   _createClass(Dropdown, [{
     key: "componentDidUpdate",
     value: function componentDidUpdate() {
-      window.removeEventListener('click', this.clickListener);
+      window.removeEventListener("click", this.clickListener);
     }
   }, {
     key: "clickListener",
@@ -933,7 +986,7 @@ var Dropdown = /*#__PURE__*/function (_React$Component) {
       this.setState({
         showDropdown: false
       }, function () {
-        window.removeEventListener('click', _this2.clickListener);
+        window.removeEventListener("click", _this2.clickListener);
       });
     }
   }, {
@@ -948,7 +1001,7 @@ var Dropdown = /*#__PURE__*/function (_React$Component) {
         };
       }, function () {
         if (_this3.state.showDropdown) {
-          window.addEventListener('click', _this3.clickListener);
+          window.addEventListener("click", _this3.clickListener);
         }
       });
     }
@@ -1044,7 +1097,7 @@ var DropdownItems = /*#__PURE__*/function (_React$Component) {
       var nums = decimal.toString();
 
       if (nums.indexOf(".") === -1) {
-        nums += '..';
+        nums += "..";
       }
 
       nums = decimal.toString().split(".");
@@ -1318,15 +1371,13 @@ var Search = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, Search);
 
     return _super.call(this, props);
-  }
+  } // componentDidMount() {
+  //   this.props.fetchStocks();
+  //   this.props.getAllAssets(this.props.currentUser.id);
+  // }
+
 
   _createClass(Search, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      this.props.getAllAssets(this.props.currentUser.id);
-      this.props.fetchStocks();
-    }
-  }, {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -1582,15 +1633,7 @@ var NewsItems = /*#__PURE__*/function (_React$Component) {
         className: "article-content-text-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
         className: "article-content-text-span"
-      }, "Today TSLA, GME, DOGE, and BTC flew to the moon. Should you join the the next takeoff by purchasing shares today?")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "article-content-link-div"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-        className: "article-content-link"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
-        className: "article-content-link-tikr-span"
-      }, "TSLA"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
-        className: "article-content-link-tikr-percent"
-      }, "4.36%")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, "Today TSLA, GME, DOGE, and BTC flew to the moon. Should you join the the next takeoff by purchasing shares today?"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "article-img-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
         className: "article-img",
@@ -1648,15 +1691,7 @@ var NewsItems = /*#__PURE__*/function (_React$Component) {
         className: "article-content-text-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
         className: "article-content-text-span"
-      }, "Apple (AAPL) Patents a LIDAR System With a Waveform Design for the Apple Car")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "article-content-link-div"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-        className: "article-content-link"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
-        className: "article-content-link-tikr-span"
-      }, "TSLA"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
-        className: "article-content-link-tikr-percent"
-      }, "4.36%")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, "Apple (AAPL) Patents a LIDAR System With a Waveform Design for the Apple Car"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "article-img-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
         className: "article-img",
@@ -1714,15 +1749,7 @@ var NewsItems = /*#__PURE__*/function (_React$Component) {
         className: "article-content-text-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
         className: "article-content-text-span"
-      }, "Google is testing Memory, an upgrade for Assistant to \u2018save and find everything\u2019")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "article-content-link-div"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-        className: "article-content-link"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
-        className: "article-content-link-tikr-span"
-      }, "TSLA"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
-        className: "article-content-link-tikr-percent"
-      }, "4.36%")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, "Google is testing Memory, an upgrade for Assistant to \u2018save and find everything\u2019"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "article-img-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
         className: "article-img",
@@ -1780,15 +1807,7 @@ var NewsItems = /*#__PURE__*/function (_React$Component) {
         className: "article-content-text-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
         className: "article-content-text-span"
-      }, "Facebook, Twitter and Google CEOs grilled by Congress on misinformation")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "article-content-link-div"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-        className: "article-content-link"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
-        className: "article-content-link-tikr-span"
-      }, "TSLA"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
-        className: "article-content-link-tikr-percent"
-      }, "4.36%")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, "Facebook, Twitter and Google CEOs grilled by Congress on misinformation"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "article-img-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
         className: "article-img",
@@ -1846,15 +1865,7 @@ var NewsItems = /*#__PURE__*/function (_React$Component) {
         className: "article-content-text-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
         className: "article-content-text-span"
-      }, "Market Wrap: Bitcoin Slips to $52K; All Eyes on Friday\u2019s $6B Options Expiry")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "article-content-link-div"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-        className: "article-content-link"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
-        className: "article-content-link-tikr-span"
-      }, "TSLA"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
-        className: "article-content-link-tikr-percent"
-      }, "4.36%")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, "Market Wrap: Bitcoin Slips to $52K; All Eyes on Friday\u2019s $6B Options Expiry"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "article-img-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
         className: "article-img",
@@ -1910,15 +1921,7 @@ var NewsItems = /*#__PURE__*/function (_React$Component) {
         className: "article-content-text-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
         className: "article-content-text-span"
-      }, "GameStop's new $175 price target from Jefferies has Reddit traders celebrating")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "article-content-link-div"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-        className: "article-content-link"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
-        className: "article-content-link-tikr-span"
-      }, "TSLA"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
-        className: "article-content-link-tikr-percent"
-      }, "4.36%")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, "GameStop's new $175 price target from Jefferies has Reddit traders celebrating"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "article-img-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
         className: "article-img",
@@ -1976,15 +1979,7 @@ var NewsItems = /*#__PURE__*/function (_React$Component) {
         className: "article-content-text-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
         className: "article-content-text-span"
-      }, "Vizio slumps 9% in NYSE debut 14 years after company took TV market by storm.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "article-content-link-div"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-        className: "article-content-link"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
-        className: "article-content-link-tikr-span"
-      }, "VZIO"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
-        className: "article-content-link-tikr-percent"
-      }, "-9.12%")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, "Vizio slumps 9% in NYSE debut 14 years after company took TV market by storm."))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "article-img-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
         className: "article-img",
@@ -2042,15 +2037,7 @@ var NewsItems = /*#__PURE__*/function (_React$Component) {
         className: "article-content-text-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
         className: "article-content-text-span"
-      }, "The End of Tesla\u2019s Dominance May Be Closer Than It Appears.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "article-content-link-div"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-        className: "article-content-link"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
-        className: "article-content-link-tikr-span"
-      }, "TSLA"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
-        className: "article-content-link-tikr-percent"
-      }, "4.36%")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, "The End of Tesla\u2019s Dominance May Be Closer Than It Appears."))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "article-img-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
         className: "article-img",
@@ -2364,15 +2351,13 @@ var AssetItems = /*#__PURE__*/function (_React$Component) {
     _this.allAssets = _this.allAssets.bind(_assertThisInitialized(_this));
     _this.convert_to_decimal = _this.convert_to_decimal.bind(_assertThisInitialized(_this));
     return _this;
-  }
+  } //   componentDidMount() {
+  // this.props.getAllAssets(this.props.currentUser.id);
+  // this.props.fetchStocks();
+  //   }
+
 
   _createClass(AssetItems, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      this.props.getAllAssets(this.props.currentUser.id);
-      this.props.fetchStocks();
-    }
-  }, {
     key: "convert_to_decimal",
     value: function convert_to_decimal(num) {
       var convert = num;
@@ -2380,7 +2365,7 @@ var AssetItems = /*#__PURE__*/function (_React$Component) {
       var nums = decimal.toString();
 
       if (nums.indexOf(".") === -1) {
-        nums += '..';
+        nums += "..";
       }
 
       nums = decimal.toString().split(".");
@@ -2747,15 +2732,19 @@ var LandingPage = /*#__PURE__*/function (_React$Component) {
         className: "main-nav-mid"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
         className: "main-nav-ul"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
+        href: "https://www.linkedin.com/in/hammad-khalid-071823143/",
+        target: "_blank",
         className: "main-nav-buttons"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "Products"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "LinkedIn"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
+        href: "https://github.com/HammadKhalid101/HelloStocks",
+        target: "_blank",
         className: "main-nav-buttons"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "Learn"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "Github"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
+        href: "http://hammad-khalid.com/",
+        target: "_blank",
         className: "main-nav-buttons"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "Support"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-        className: "main-nav-buttons"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "Who we are"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "Personal Site"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "greeting-container-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_greeting__WEBPACK_IMPORTED_MODULE_1__.default, null)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "first-section"
@@ -2779,7 +2768,7 @@ var LandingPage = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
         className: "commissions-modal-button-logo"
       }, "i")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        lassName: "commissions-modal-span"
+        className: "commissions-modal-span"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
         className: "commissions-modal-span"
       }, "Commissions & Free Stock Disclosures"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -2941,8 +2930,8 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.state = {
-      username: '',
-      password: ''
+      username: "",
+      password: ""
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.handleDemoUser = _this.handleDemoUser.bind(_assertThisInitialized(_this));
@@ -2973,8 +2962,8 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
     key: "handleDemoUser",
     value: function handleDemoUser(e) {
       this.props.processForm({
-        username: 'demotrades',
-        password: 'password1234'
+        username: "demotrades",
+        password: "password1234"
       }); // this.props.loginDemo({
       //     username: 'demotrades',
       //     password: 'password1234'
@@ -3026,7 +3015,7 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
         className: "login-form-email-input",
         type: "text",
         value: username,
-        onChange: this.update('username')
+        onChange: this.update("username")
       })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "login-form-password-input-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -3037,7 +3026,7 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
         className: "login-form-password-input",
         type: "password",
         value: password,
-        onChange: this.update('password')
+        onChange: this.update("password")
       })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "forgot-credentials"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
@@ -3053,13 +3042,6 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
         className: "login-form-signin-button-span"
       }, "Sign In"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "login-form-demo-button-div"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-        className: "login-form-demo-button",
-        onClick: this.handleDemoUser
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
-        className: "login-form-demo-button-span"
-      }, "Demo User"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "login-form-redirect-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
         className: "login-form-dont-text-span"
@@ -3068,7 +3050,14 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
         className: "login-form-redirect-signup-link",
         to: "/signup"
-      }, "Sign up to make money")))));
+      }, "Sign up to make money"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "login-form-demo-button-div"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        className: "login-form-demo-button",
+        onClick: this.handleDemoUser
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+        className: "login-form-demo-button-span"
+      }, "Demo User")))));
     }
   }]);
 
@@ -3173,11 +3162,11 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.state = {
-      first_name: '',
-      last_name: '',
-      username: '',
-      email: '',
-      password: ''
+      first_name: "",
+      last_name: "",
+      username: "",
+      email: "",
+      password: ""
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.handleDemoUser = _this.handleDemoUser.bind(_assertThisInitialized(_this));
@@ -3209,8 +3198,8 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
     key: "handleDemoUser",
     value: function handleDemoUser() {
       this.props.demoUser({
-        username: 'demotrades',
-        password: 'password'
+        username: "demotrades",
+        password: "password"
       });
     }
   }, {
@@ -3282,7 +3271,7 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
         type: "text",
         value: first_name,
         placeholder: "First name",
-        onChange: this.update('first_name')
+        onChange: this.update("first_name")
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "signup-form-lname"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -3292,7 +3281,7 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
         type: "text",
         value: last_name,
         placeholder: "Last name",
-        onChange: this.update('last_name')
+        onChange: this.update("last_name")
       })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "signup-form-username"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -3302,7 +3291,7 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
         type: "text",
         value: username,
         placeholder: "Username",
-        onChange: this.update('username')
+        onChange: this.update("username")
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "signup-form-email"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -3312,7 +3301,7 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
         type: "text",
         value: email,
         placeholder: "Email",
-        onChange: this.update('email')
+        onChange: this.update("email")
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "signup-form-password"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -3322,7 +3311,7 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
         type: "password",
         value: password,
         placeholder: "Password (min. 10 characters)",
-        onChange: this.update('password')
+        onChange: this.update("password")
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "signup-form-buttons"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -3336,7 +3325,7 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
         className: "signup-form-continue-inner-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
         className: "signup-form-continue-span"
-      }, "Continue"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, "Sign Up"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "signup-form-redirect-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
         className: "signup-form-already-text-span"
@@ -3355,72 +3344,7 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
         className: "signup-right"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "signup-right-margin-div"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "One"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Two"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Three"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Four"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Five"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Six")))) //     <h3 className="signup-form-logo">HelloStocks (Add HelloStocks Logo Here)</h3>
-      //     <br/>
-      //     <br/>
-      //     <form onSubmit={this.handleSubmit} className="signup-form-box">Make Your Money Move, Fly To The Moon
-      //         <p>HelloStocks lets you invest in companies you love, commission-free.</p>
-      //         <br/>
-      //         Please enter your full legal name. Your legal name should match any form of government ID.
-      //         {this.renderErrors()}
-      //         <br/>
-      //         <div className="signup-form">
-      //             <br/>
-      //                 <input 
-      //                     className="signup-input"
-      //                     type="text" 
-      //                     value={first_name}
-      //                     placeholder="First name"
-      //                     onChange={this.update('first_name')}
-      //                 />
-      //             <br/>
-      //             <br/>
-      //                 <input 
-      //                     className="signup-input"
-      //                     type="text" 
-      //                     value={last_name}
-      //                     placeholder="Last name"
-      //                     onChange={this.update('last_name')}
-      //                 />
-      //             <br/>
-      //             <br/>
-      //                 <input 
-      //                     className="signup-input"
-      //                     type="text" 
-      //                     value={username}
-      //                     placeholder="Username"
-      //                     onChange={this.update('username')}
-      //                 />
-      //             <br/>
-      //             <br/>
-      //                 <input 
-      //                     className="signup-input"
-      //                     type="text" 
-      //                     value={email}
-      //                     placeholder="Email"
-      //                     onChange={this.update('email')}
-      //                 />
-      //             <br/>
-      //             <br/>
-      //                 <input 
-      //                     className="signup-input"
-      //                     type="password" 
-      //                     value={password}
-      //                     placeholder="Password"
-      //                     onChange={this.update('password')}
-      //                 />
-      //             <br/>
-      //             {/* <p>Already Started</p>
-      //             <button className="signup-already-started-button">Log in to complete your application</button> */}
-      //             <br/>
-      //             <button className="signup-button" type="submit">Continue</button>
-      //         </div>
-      //     </form>
-      //     <br/>
-      //     <button className='demo-user-button-signup' onClick={this.handleDemoUser}>Demo User</button>
-      //     <br/>
-      // </div>
-      ;
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "One"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Two"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Three"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Four"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Five"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Six"))));
     }
   }]);
 
@@ -3696,14 +3620,12 @@ var sessionReducer = function sessionReducer() {
 
   switch (action.type) {
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_CURRENT_USER:
+      // debugger;
       return {
         id: action.currentUser.id
       };
-
-    case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_DEMO_USER:
-      return {
-        id: action.currentUser.id
-      };
+    // case RECEIVE_DEMO_USER:
+    //   return { id: action.currentUser.id };
 
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__.LOGOUT_CURRENT_USER:
       return _nullUser;
@@ -3932,7 +3854,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 
 
 
@@ -3991,14 +3913,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "signup": () => (/* binding */ signup),
 /* harmony export */   "login": () => (/* binding */ login),
-/* harmony export */   "logout": () => (/* binding */ logout),
-/* harmony export */   "loginDemoUser": () => (/* binding */ loginDemoUser)
+/* harmony export */   "logout": () => (/* binding */ logout)
 /* harmony export */ });
 // signup will take in a user object as an argument
 var signup = function signup(user) {
   return $.ajax({
-    method: 'POST',
-    url: '/api/users',
+    method: "POST",
+    url: "/api/users",
     data: {
       user: user
     }
@@ -4006,9 +3927,10 @@ var signup = function signup(user) {
 }; // login will take in a user object as an argument
 
 var login = function login(user) {
+  //   debugger;
   return $.ajax({
-    method: 'POST',
-    url: '/api/session',
+    method: "POST",
+    url: "/api/session",
     data: {
       user: user
     }
@@ -4017,19 +3939,16 @@ var login = function login(user) {
 
 var logout = function logout() {
   return $.ajax({
-    method: 'DELETE',
-    url: '/api/session'
+    method: "DELETE",
+    url: "/api/session"
   });
-};
-var loginDemoUser = function loginDemoUser(user) {
-  return $.ajax({
-    method: 'POST',
-    url: '/api/session',
-    data: {
-      user: user
-    }
-  });
-};
+}; // export const loginDemoUser = (user) => {
+//   return $.ajax({
+//     method: "POST",
+//     url: "/api/session",
+//     data: { user },
+//   });
+// };
 
 /***/ }),
 

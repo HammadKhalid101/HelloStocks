@@ -1,7 +1,8 @@
 class Api::AssetsController < ApplicationController
-    def index 
-        @user = User.find_by(id: params[:user_id])
-        @assets = Asset.includes(:stocks).where(user_id: @user.id)
+    def index
+        # @current_user = current_user
+        # @user = User.find_by(id: params[:user_id])
+        @assets = Asset.includes(:stocks).where(user_id: current_user.id)
         # @user_id = User.find_by(id: params[:user_id]).id
         if @assets
             render :index
@@ -12,8 +13,8 @@ class Api::AssetsController < ApplicationController
 
     def show 
         # @asset = Asset.find_by(id: params[:id])
-        @user = User.find_by(id: params[:user_id])
-        @asset = User.find_by(id: @user.id).assets.find_by(id: params[:id])
+        # @user = User.find_by(id: params[:user_id])
+        @asset = User.find_by(id: current_user.id).assets.find_by(id: params[:id])
 
         # 
         if @asset
