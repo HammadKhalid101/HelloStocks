@@ -10,7 +10,7 @@ class NewsItems extends React.Component {
       <div className="news-articles-container">
         <div className="news-article-div">
           <article className="news-article">
-            <a className="article-link" href="/#/dashboard">
+            <a className="article-link" target="_blank" href="/#/dashboard">
               <div className="article-heading-container">
                 <div className="article-heading">
                   <span className="article-heading-svg-span">
@@ -80,6 +80,7 @@ class NewsItems extends React.Component {
           <article className="news-article">
             <a
               className="article-link"
+              target="_blank"
               href="https://wccftech.com/apple-aapl-patents-a-lidar-system-with-a-waveform-design-for-the-apple-car/"
             >
               <div className="article-heading-container">
@@ -149,6 +150,7 @@ class NewsItems extends React.Component {
           <article className="news-article">
             <a
               className="article-link"
+              target="_blank"
               href="https://www.theverge.com/2021/3/25/22350173/google-assistant-memory-save-to-do-pocket-pinterest-notes-reminders"
             >
               <div className="article-heading-container">
@@ -218,6 +220,7 @@ class NewsItems extends React.Component {
           <article className="news-article">
             <a
               className="article-link"
+              target="_blank"
               href="https://www.cnn.com/2021/03/25/tech/tech-ceos-hearing/index.html"
             >
               <div className="article-heading-container">
@@ -287,6 +290,7 @@ class NewsItems extends React.Component {
           <article className="news-article">
             <a
               className="article-link"
+              target="_blank"
               href="https://finance.yahoo.com/news/market-wrap-bitcoin-slips-52k-203147900.html"
             >
               <div className="article-heading-container">
@@ -356,6 +360,7 @@ class NewsItems extends React.Component {
           <article className="news-article">
             <a
               className="article-link"
+              target="_blank"
               href="https://markets.businessinsider.com/news/stocks/gamestop-stock-new-price-target-jefferies-reddit-traders-celebrating-2021-3-1030242026"
             >
               <div className="article-heading-container">
@@ -423,6 +428,7 @@ class NewsItems extends React.Component {
           <article className="news-article">
             <a
               className="article-link"
+              target="_blank"
               href="https://www.cnbc.com/2021/03/25/vizio-ipo-comes-14-years-after-company-took-us-tv-market-by-storm.html"
             >
               <div className="article-heading-container">
@@ -492,6 +498,7 @@ class NewsItems extends React.Component {
           <article className="news-article">
             <a
               className="article-link"
+              target="_blank"
               href="https://www.bloomberg.com/news/articles/2021-03-24/tesla-tsla-and-elon-musk-s-dominance-is-threatened-by-volkswagen"
             >
               <div className="article-heading-container">

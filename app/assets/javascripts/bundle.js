@@ -417,12 +417,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _sessions_login_login_form_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./sessions/login/login_form_container */ "./frontend/components/sessions/login/login_form_container.jsx");
-/* harmony import */ var _sessions_signup_signup_form_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./sessions/signup/signup_form_container */ "./frontend/components/sessions/signup/signup_form_container.jsx");
-/* harmony import */ var _util_route_util__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../util/route_util */ "./frontend/util/route_util.jsx");
-/* harmony import */ var _greeting_landing__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./greeting/landing */ "./frontend/components/greeting/landing.jsx");
-/* harmony import */ var _dashboard_dashboard_container__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./dashboard/dashboard_container */ "./frontend/components/dashboard/dashboard_container.jsx");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var _sessions_login_login_form_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./sessions/login/login_form_container */ "./frontend/components/sessions/login/login_form_container.jsx");
+/* harmony import */ var _sessions_signup_signup_form_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./sessions/signup/signup_form_container */ "./frontend/components/sessions/signup/signup_form_container.jsx");
+/* harmony import */ var _util_route_util__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../util/route_util */ "./frontend/util/route_util.jsx");
+/* harmony import */ var _greeting_landing__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./greeting/landing */ "./frontend/components/greeting/landing.jsx");
+/* harmony import */ var _dashboard_dashboard_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./dashboard/dashboard_container */ "./frontend/components/dashboard/dashboard_container.jsx");
 
 
 
@@ -432,21 +432,21 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var App = function App() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Switch, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Route, {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Switch, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
     exact: true,
     path: "/",
-    component: _greeting_landing__WEBPACK_IMPORTED_MODULE_5__.default
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_4__.AuthRoute, {
+    component: _greeting_landing__WEBPACK_IMPORTED_MODULE_4__.default
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_3__.AuthRoute, {
     exact: true,
     path: "/login",
-    component: _sessions_login_login_form_container__WEBPACK_IMPORTED_MODULE_2__.default
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_4__.AuthRoute, {
+    component: _sessions_login_login_form_container__WEBPACK_IMPORTED_MODULE_1__.default
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_3__.AuthRoute, {
     exact: true,
     path: "/signup",
-    component: _sessions_signup_signup_form_container__WEBPACK_IMPORTED_MODULE_3__.default
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_4__.ProtectedRoute, {
+    component: _sessions_signup_signup_form_container__WEBPACK_IMPORTED_MODULE_2__.default
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_3__.ProtectedRoute, {
     path: "/dashboard",
-    component: _dashboard_dashboard_container__WEBPACK_IMPORTED_MODULE_6__.default
+    component: _dashboard_dashboard_container__WEBPACK_IMPORTED_MODULE_5__.default
   }));
 };
 
@@ -802,6 +802,11 @@ var MainGraph = /*#__PURE__*/function (_React$Component) {
     key: "portfolioValue",
     value: function portfolioValue() {
       var value = this.props.currentUser.buying_power;
+
+      if (!this.props.stocks || !this.props.assets) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Loading......");
+      }
+
       var stocks = this.props.stocks;
       Object.values(this.props.assets).map(function (asset, idx) {
         value += asset.quantity * stocks[asset.stock_id].last_price;
@@ -1305,13 +1310,16 @@ var Navbar = /*#__PURE__*/function (_React$Component) {
         href: "/#/dashboard"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "Portfolio")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
         className: "nav-right-side-linkedin",
-        href: "https://www.linkedin.com/in/hammad-khalid-071823143/"
+        href: "https://www.linkedin.com/in/hammad-khalid-071823143/",
+        target: "_blank"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "LinkedIn")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
         className: "nav-right-side-github",
-        href: "https://github.com/HammadKhalid101"
+        href: "https://github.com/HammadKhalid101",
+        target: "_blank"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "Github")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
         className: "nav-right-side-site",
-        href: "https://www.hammad-khalid.com/"
+        href: "http://www.hammad-khalid.com/",
+        target: "_blank"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "Personal Website"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "nav-dropdown-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_dropdown_dropdown__WEBPACK_IMPORTED_MODULE_1__.default, null)))));
@@ -1322,7 +1330,6 @@ var Navbar = /*#__PURE__*/function (_React$Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0__.Component);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Navbar);
-;
 
 /***/ }),
 
@@ -1586,6 +1593,7 @@ var NewsItems = /*#__PURE__*/function (_React$Component) {
         className: "news-article"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
         className: "article-link",
+        target: "_blank",
         href: "/#/dashboard"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "article-heading-container"
@@ -1644,6 +1652,7 @@ var NewsItems = /*#__PURE__*/function (_React$Component) {
         className: "news-article"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
         className: "article-link",
+        target: "_blank",
         href: "https://wccftech.com/apple-aapl-patents-a-lidar-system-with-a-waveform-design-for-the-apple-car/"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "article-heading-container"
@@ -1702,6 +1711,7 @@ var NewsItems = /*#__PURE__*/function (_React$Component) {
         className: "news-article"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
         className: "article-link",
+        target: "_blank",
         href: "https://www.theverge.com/2021/3/25/22350173/google-assistant-memory-save-to-do-pocket-pinterest-notes-reminders"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "article-heading-container"
@@ -1760,6 +1770,7 @@ var NewsItems = /*#__PURE__*/function (_React$Component) {
         className: "news-article"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
         className: "article-link",
+        target: "_blank",
         href: "https://www.cnn.com/2021/03/25/tech/tech-ceos-hearing/index.html"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "article-heading-container"
@@ -1818,6 +1829,7 @@ var NewsItems = /*#__PURE__*/function (_React$Component) {
         className: "news-article"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
         className: "article-link",
+        target: "_blank",
         href: "https://finance.yahoo.com/news/market-wrap-bitcoin-slips-52k-203147900.html"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "article-heading-container"
@@ -1876,6 +1888,7 @@ var NewsItems = /*#__PURE__*/function (_React$Component) {
         className: "news-article"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
         className: "article-link",
+        target: "_blank",
         href: "https://markets.businessinsider.com/news/stocks/gamestop-stock-new-price-target-jefferies-reddit-traders-celebrating-2021-3-1030242026"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "article-heading-container"
@@ -1932,6 +1945,7 @@ var NewsItems = /*#__PURE__*/function (_React$Component) {
         className: "news-article"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
         className: "article-link",
+        target: "_blank",
         href: "https://www.cnbc.com/2021/03/25/vizio-ipo-comes-14-years-after-company-took-us-tv-market-by-storm.html"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "article-heading-container"
@@ -1990,6 +2004,7 @@ var NewsItems = /*#__PURE__*/function (_React$Component) {
         className: "news-article"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
         className: "article-link",
+        target: "_blank",
         href: "https://www.bloomberg.com/news/articles/2021-03-24/tesla-tsla-and-elon-musk-s-dominance-is-threatened-by-volkswagen"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "article-heading-container"
@@ -3854,7 +3869,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
 
 
 

@@ -34,6 +34,9 @@ class MainGraph extends React.Component {
 
   portfolioValue() {
     let value = this.props.currentUser.buying_power;
+    if (!this.props.stocks || !this.props.assets) {
+      return <div>Loading......</div>;
+    }
     const stocks = this.props.stocks;
     Object.values(this.props.assets).map((asset, idx) => {
       value += asset.quantity * stocks[asset.stock_id].last_price;
